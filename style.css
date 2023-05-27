@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro:wght@400&display=swap");
+
+:root{
+    --black: #36393d;
+    --black2: #43464a;
+    --accent2: #707070;
+    --accent: #c3c3c3;
+}
+
+* {
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/*header styles TBD*/
+
+
+/*cast offs styles*/
+main article div {
+    display: flex;
+    justify-content: center; 
+}
