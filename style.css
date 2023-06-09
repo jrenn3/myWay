@@ -1,23 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro:wght@400&display=swap");
 
 :root{
-    --black: #36393d;
-    --black2: #43464a;
-    --accent2: #707070;
-    --accent: #c3c3c3;
+    --primary: #e7e0c9;
+    --secondary: #6b7aa1;
+    --text: #11324d;
+    --accent: #c1cfc0;
 }
 
 * {
-    color: var(--black);
     font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
 }
 
-/*header styles TBD*/
+body {
+    margin: 0;
+    background-color: var(--primary)
+}
 
-
-/*cast offs styles*/
-main article div {
+/*header styles*/
+header {
+    padding: 0px 20px 0px 20px;
     display: flex;
-    justify-content: center; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary);
+    font-family: Garamond; /*TASK-need to import the font*/
 }
+
+h2 {
+    font-size: 2em; 
+}
+
+/*toggle styles*/
+/*TASK - look at cool button styles to import*/
+#agendaToggle {
+    color: var(--primary);
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: var(--text);
+    margin: 15px;
+    border-radius: 10px;
+}
+
+#agendaToggle * {
+    margin: 0px;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*expedition crew styles*/

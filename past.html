@@ -12,14 +12,16 @@
             <h1>My Way</h1>
             <h2>2023</h2>
         </header>
-        <main> <!--TASK:where should i use class vs id-->
-            <div id = agendaToggle>
-                <h4>Upcoming</h4> <!--TASK add a link-->
-                <h4>Past</h4> <!--TASK add a link-->
+        <main>
+            <article class = "schedule"> <!--Task:where should i use class vs id-->
+            <div>
+                <h4>Upcoming</h4>
+                <h4>Past</h4>
             </div>
-            <section > <!--TASK:section vs article-->
+            <section class = "upcomingDays"> 
+                <h4>Upcoming</h4>
                 <div>
-                    <p>Monday 6/5</p>
+                    <p>6/5 Mon Eve</p>
                     <p>5pm-morning</p>
                     <!--Task:insert the icon of day vs eve-->
                     <div class = "crew">
@@ -75,6 +77,10 @@
                         </div>
                     </div>
                 </div> <!--Task:repeat this div for the whole summer of days-->
+            </section>
+            <section id = "pastDays">
+                <h2>Past</h2>
+                    <div>None</div>
             </section>
         <hr>
         </main>
