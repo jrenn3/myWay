@@ -5,6 +5,15 @@
     --secondary: #6b7aa1;
     --text: #11324d;
     --accent: #c1cfc0;
+
+    --primary-light: #8abdff;
+    --primary-dark: #5b0eeb;
+    
+    --white: #FFFFFF;
+    --greyLight-1: #E4EBF5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
 }
 
 * {
@@ -18,7 +27,7 @@ body {
 
 /*header styles*/
 header {
-    padding: 0px 20px 0px 20px;
+    padding: 0px 24px 0px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,16 +39,16 @@ h2 {
     font-size: 2em; 
 }
 
-/*toggle styles*/
-/*TASK - look at cool button styles to import*/
+/*toggle*/
+
 #agendaToggle {
     color: var(--primary);
     display: flex;
     justify-content: space-evenly;
     align-content: center;
     background-color: var(--text);
-    margin: 15px;
-    border-radius: 10px;
+    margin: 16px 24px 16px 24px;
+    border-radius: 8px;
 }
 
 #agendaToggle * {
@@ -49,6 +58,12 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} 
 
-/*expedition crew styles*/
+/*expedition crew*/
+.crewHeader, .expeditionDate, .person{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin: 0px 24px 0px 24px;
+}
