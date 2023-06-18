@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro:wght@400&display=swap");
 
 :root{
-    --primary: #e7e0c9;
-    --secondary: #6b7aa1;
-    --text: #11324d;
+    --primary: #124559;
+    --primary-light: #598392;
+    --primary-dark: #01161e;
+    --secondary: #eff6e0;
+    --secondary-dark: #aec3b0;
     --accent: #c1cfc0;
-
-    --primary-light: #8abdff;
-    --primary-dark: #5b0eeb;
     
-    --white: #FFFFFF;
+    --white: #FFFFFF; 
     --greyLight-1: #E4EBF5;
     --greyLight-2: #c8d0e7;
     --greyLight-3: #bec8e4;
@@ -22,7 +21,8 @@
 
 body {
     margin: 0;
-    background-color: var(--primary)
+    background-color: var(--primary-light)
+    
 }
 
 /*header styles*/
@@ -31,7 +31,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--secondary);
+    background-color: var(--primary-light);
+    color: var(--primary);
     font-family: Garamond; /*TASK-need to import the font*/
 }
 
@@ -42,11 +43,11 @@ h2 {
 /*toggle*/
 
 #agendaToggle {
-    color: var(--primary);
+    color: var(--secondary);
     display: flex;
     justify-content: space-evenly;
     align-content: center;
-    background-color: var(--text);
+    background-color: var(--secondary-dark);
     margin: 16px 24px 16px 24px;
     border-radius: 8px;
 }
@@ -61,9 +62,18 @@ h2 {
 } 
 
 /*expedition crew*/
+.expedition {
+    margin: 0px 24px 0px 24px;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-radius: 8px;
+}
+
 .crewHeader, .expeditionDate, .person{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-content: center;
     margin: 0px 24px 0px 24px;
+    height: 40px;
 }
