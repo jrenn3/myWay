@@ -33,11 +33,15 @@ header {
     align-items: center;
     background-color: var(--primary-light);
     color: var(--primary);
-    font-family: Garamond; /*TASK-need to import the font*/
+}
+
+h1 {
+    font-family: "Playfair Display", Arial, Helvetica, sans-serif;
 }
 
 h2 {
     font-size: 2em; 
+    font-family: "Playfair Display", Arial, Helvetica, sans-serif;
 }
 
 /*toggle*/
