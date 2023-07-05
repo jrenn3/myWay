@@ -43,12 +43,27 @@ window.days = [
     }
 ]
 
+//render a single day
 function renderDays(day) {
-    // const { date, slot, }
-    const content = `
+    const day = {
+        date, 
+        slot, 
+        person1: {name, guestOf}, 
+        person2: {name, guestOf}, 
+        person3: {name, guestOf}, 
+        person4: {name, guestOf}, 
+        person5: {name, guestOf}, 
+        person6: {name, guestOf}, 
+        person7: {name, guestOf}, 
+        person8: {name, guestOf}, 
+        person9: {name, guestOf}, 
+        person10: {name, guestOf}, 
+        person11: {name, guestOf}, 
+        person12: {name, guestOf}}
+    return `
         <div class = "expedition">
-            <p class = "expeditionDate">${day.date}</p>
-            <p class = "expeditionSlot">${day.slot}</p>
+            <p class = "expeditionDate">${date}</p>
+            <p class = "expeditionSlot">${slot}</p>
             <hr>
             <div class = "crewHeader">
                 <p>Crew</p>
@@ -57,57 +72,56 @@ function renderDays(day) {
             <hr>
             <div class = "crew">
                 <div class = "person">
-                    <p class = "name">${day.person1.name}</p>
-                    <p class = "guestOf">${day.person1.guestOf}</p>
+                    <p class = "name">${person1.name}</p>
+                    <p class = "guestOf">${person1.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person2.name}</p>
-                    <p class = "guestOf">${day.person2.guestOf}</p>
+                    <p class = "name">${person2.name}</p>
+                    <p class = "guestOf">${person2.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person3.name}</p>
-                    <p class = "guestOf">${day.person3.guestOf}</p>
+                    <p class = "name">${person3.name}</p>
+                    <p class = "guestOf">${person3.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person4.name}</p>
-                    <p class = "guestOf">${day.person4.guestOf}</p>
+                    <p class = "name">${person4.name}</p>
+                    <p class = "guestOf">${person4.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person5.name}</p>
-                    <p class = "guestOf">${day.person5.guestOf}</p>
+                    <p class = "name">${person5.name}</p>
+                    <p class = "guestOf">${person5.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person6.name}</p>
-                    <p class = "guestOf">${day.person6.guestOf}</p>
+                    <p class = "name">${person6.name}</p>
+                    <p class = "guestOf">${person6.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person7.name}</p>
-                    <p class = "guestOf">${day.person7.guestOf}</p>
+                    <p class = "name">${person7.name}</p>
+                    <p class = "guestOf">${person7.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person8.name}</p>
-                    <p class = "guestOf">${day.person8.guestOf}</p> 
+                    <p class = "name">${person8.name}</p>
+                    <p class = "guestOf">${person8.guestOf}</p> 
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person9.name}</p>
-                    <p class = "guestOf">${day.person9.guestOf}</p>
+                    <p class = "name">${person9.name}</p>
+                    <p class = "guestOf">${person9.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person10.name}</p>
-                    <p class = "guestOf">${day.person10.guestOf}</p>
+                    <p class = "name">${person10.name}</p>
+                    <p class = "guestOf">${person10.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person11.name}</p>
-                    <p class = "guestOf">${day.person11.guestOf}</p>
+                    <p class = "name">${person11.name}</p>
+                    <p class = "guestOf">${person11.guestOf}</p>
                 </div>
                 <div class = "person">
-                    <p class = "name">${day.person12.name}</p>
-                    <p class = "guestOf">${day.person12.guestOf}</p>
+                    <p class = "name">${person12.name}</p>
+                    <p class = "guestOf">${person12.guestOf}</p>
                 </div>
             </div>
         </div>
     `;
-    return content;
 }
 
 // const people = document.querySelectorAll(".person"); //create an array of all the people
