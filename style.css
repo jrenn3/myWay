@@ -20,6 +20,8 @@
 }
 
 body {
+    max-width: 500px;
+    justify-content: center;
     margin: 0;
     background-color: var(--primary-light)
     
@@ -73,11 +75,25 @@ h2 {
     border-radius: 8px;
 }
 
-.crewHeader, .expeditionDate, .person{
+.person{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: center;
     margin: 0px 24px 0px 24px;
     height: 40px;
+} 
+
+td + td, th + th {
+    text-align: right;
+}
+
+table {
+    text-indent: none;
+    display: flex;
+    justify-content: center;
+}
+
+td, th{
+    min-width: 100px;
 }

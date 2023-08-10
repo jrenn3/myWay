@@ -36,7 +36,7 @@ window.days = [
         // person12: new person ("" , "")
         }
     },
-    {date: 6/15/2023,
+    {date: "6/15/2023",
     slot: "Eve",
     event: "",
     crew: {
@@ -54,7 +54,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/24/2023,
+    {date: "6/24/2023",
     slot: "Eve",
     event: "Fireworks",
     crew: {
@@ -72,7 +72,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 7/2/2023,
+    {date: "7/2/2023",
     slot: "Eve",
     event: "",
     crew: {
@@ -90,7 +90,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 7/5/2023,
+    {date: "7/5/2023",
     slot: "Eve",
     event: "Fireworks",
     crew: {
@@ -108,7 +108,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 7/16/2023,
+    {date: "7/16/2023",
     slot: "Day",
     event: "",
     crew: {
@@ -126,7 +126,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 7/22/2023,
+    {date: "7/22/2023",
     slot: "Eve",
     event: "Fireworks",
     crew: {
@@ -144,7 +144,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 7/25/2023,
+    {date: "7/25/2023",
     slot: "Eve",
     event: "",
     crew: {
@@ -162,7 +162,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 7/29/2023,
+    {date: "7/29/2023",
     slot: "Eve",
     event: "Chicago Scene Boat Party",
     crew: {
@@ -180,7 +180,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 8/10/2023,
+    {date: "8/10/2023",
     slot: "Eve",
     event: "",
     crew: {
@@ -198,7 +198,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "8/13/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -215,7 +215,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "8/16/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -232,7 +232,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "8/26/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -249,7 +249,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "9/2/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -266,7 +266,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "9/7/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -283,7 +283,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "9/12/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -300,7 +300,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "9/15/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -317,7 +317,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "9/16/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -334,7 +334,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: 6/15/2023,
+    {date: "9/27/2023",
     slot: "Eve",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
@@ -374,62 +374,60 @@ function renderDay(day) {
         <div class = "day">
             <p class = "date">${day.date}</p>
             <p class = "slot">${day.slot}</p>
-            <hr>
-            <div class = "crewHeader">
-                <p>Crew</p>
-                <p>Guest of</p> 
-            </div>
-            <hr>
-            <div class = "crew">
-                <div class = "person">
-                    <p class = "name">${day.crew.person1.name}</p>
-                    <p class = "guestOf">${day.crew.person1.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person2.name}</p>
-                    <p class = "guestOf">${day.crew.person2.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person3.name}</p>
-                    <p class = "guestOf">${day.crew.person3.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person4.name}</p>
-                    <p class = "guestOf">${day.crew.person4.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person5.name}</p>
-                    <p class = "guestOf">${day.crew.person5.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person6.name}</p>
-                    <p class = "guestOf">${day.crew.person6.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person7.name}</p>
-                    <p class = "guestOf">${day.crew.person7.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person8.name}</p>
-                    <p class = "guestOf">${day.crew.person8.guestOf}</p> 
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person9.name}</p>
-                    <p class = "guestOf">${day.crew.person9.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person10.name}</p>
-                    <p class = "guestOf">${day.crew.person10.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person11.name}</p>
-                    <p class = "guestOf">${day.crew.person11.guestOf}</p>
-                </div>
-                <div class = "person">
-                    <p class = "name">${day.crew.person12.name}</p>
-                    <p class = "guestOf">${day.crew.person12.guestOf}</p>
-                </div>
-            </div>
+            <table class = "crew">
+                <tr>
+                    <th>Crew</th>
+                    <th>Guest of</th> 
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person1.name}</td>
+                    <td class = "guestOf">${day.crew.person1.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person2.name}</td>
+                    <td class = "guestOf">${day.crew.person2.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person3.name}</td>
+                    <td class = "guestOf">${day.crew.person3.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person4.name}</td>
+                    <td class = "guestOf">${day.crew.person4.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person5.name}</td>
+                    <td class = "guestOf">${day.crew.person5.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person6.name}</td>
+                    <td class = "guestOf">${day.crew.person6.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person7.name}</td>
+                    <td class = "guestOf">${day.crew.person7.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person8.name}</td>
+                    <td class = "guestOf">${day.crew.person8.guestOf}</td> 
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person9.name}</td>
+                    <td class = "guestOf">${day.crew.person9.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person10.name}</td>
+                    <td class = "guestOf">${day.crew.person10.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person11.name}</td>
+                    <td class = "guestOf">${day.crew.person11.guestOf}</td>
+                </tr>
+                <tr class = "person">
+                    <td class = "name">${day.crew.person12.name}</td>
+                    <td class = "guestOf">${day.crew.person12.guestOf}</td>
+                </tr>
+            </table>
         </div>
     `;
 }
