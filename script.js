@@ -322,7 +322,7 @@ window.days = [
     },
     {date: "9/16/2023",
     slot: "Eve",
-    event: "Overnight Casino Trip",
+    event: "Casino Trip",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
         person2: { name: "Joe" , guestOf: ""},
