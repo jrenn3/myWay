@@ -62,20 +62,14 @@ table {
     text-align: left;
 }
 
-.person{
+tr {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-content: center;
-    /* margin: 0px 24px 0px 24px; */
-    height: 40px;
+    padding: 4px 0px 4px 0px;
 } 
 
 td + td, th + th {
     text-align: right;
 }
-
-
 
 td, th{
     min-width: 100px;
