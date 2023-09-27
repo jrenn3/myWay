@@ -24,8 +24,8 @@ body {
     max-width: 500px;
     justify-content: center;
     margin: 0;
-    background-color: var(--primary-light)
-    
+    background-color: var(--primary-light);
+    display: inline;
 }
 
 /*header styles*/
@@ -48,11 +48,19 @@ h2 {
 }
 
 /*expedition crew*/
-.expedition {
-    /* margin: 0px 24px 0px 24px; */
-    background-color: var(--secondary);
-    color: var(--primary);
-    border-radius: 8px;
+.expeditions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.day {
+    background-color: var(--greyLight-1);
+    margin: 10px;
+    max-width: 250px;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 15px;
 }
 
 table {
@@ -60,12 +68,22 @@ table {
     display: flex;
     justify-content: center;
     text-align: left;
+    border-collapse: collapse; /* borders of adjacent cells collapse into a single border, creating a cleaner look */
 }
 
 tr {
     display: flex;
     padding: 4px 0px 4px 0px;
 } 
+
+.person {
+    border-top: 1px solid var(--greyLight-2);
+}
+
+.header {
+    padding: 10px 0px 4px 0px;
+    border-bottom: 1px solid var(--greyDark);
+}
 
 td + td, th + th {
     text-align: right;

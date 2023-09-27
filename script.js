@@ -116,7 +116,7 @@ function renderDay(day) {
                 <td>Crew</td>
                 <td>Guest of</td> 
             </tr>
-            <tr class = "person">
+            <tr class = "person1">
                 <td class = "name">${day.crew.person1.name}</td>
                 <td class = "guestOf">${day.crew.person1.guestOf}</td>
             </tr>
@@ -170,7 +170,7 @@ function renderDay(day) {
 
 
 function render(days) {
-    const element = document.querySelector("#expeditions");
+    const element = document.querySelector(".expeditions");
     console.log(days.map(renderDay).join(""));
     element.innerHTML = days.map(renderDay).join("");
   }
