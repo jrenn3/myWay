@@ -116,54 +116,54 @@ function renderDay(day) {
                 <td>Crew</td>
                 <td>Guest of</td> 
             </tr>
-            <tr class = "person1">
+            ${day.crew.person1.name ? `<tr class = "person1">
                 <td class = "name">${day.crew.person1.name}</td>
                 <td class = "guestOf">${day.crew.person1.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person2.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person2.name}</td>
                 <td class = "guestOf">${day.crew.person2.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person3.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person3.name}</td>
                 <td class = "guestOf">${day.crew.person3.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person4.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person4.name}</td>
                 <td class = "guestOf">${day.crew.person4.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person5.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person5.name}</td>
                 <td class = "guestOf">${day.crew.person5.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person6.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person6.name}</td>
                 <td class = "guestOf">${day.crew.person6.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person7.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person7.name}</td>
                 <td class = "guestOf">${day.crew.person7.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person8.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person8.name}</td>
                 <td class = "guestOf">${day.crew.person8.guestOf}</td> 
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person9.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person9.name}</td>
                 <td class = "guestOf">${day.crew.person9.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person10.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person10.name}</td>
                 <td class = "guestOf">${day.crew.person10.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person11.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person11.name}</td>
                 <td class = "guestOf">${day.crew.person11.guestOf}</td>
-            </tr>
-            <tr class = "person">
+            </tr>` : ""}
+            ${day.crew.person12.name ? `<tr class = "person">
                 <td class = "name">${day.crew.person12.name}</td>
                 <td class = "guestOf">${day.crew.person12.guestOf}</td>
-            </tr>
+            </tr>` : ""}
         </table>
     `;
 }
