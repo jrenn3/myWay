@@ -1,6 +1,6 @@
 //The days array contains a list of the boat days and crew for the day
 window.days = [
-    {date: "9/7/2023",
+    {date: "10/2/2023",
     slot: "Eve",
     event: "Sailing",
     crew: {
@@ -18,7 +18,7 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         } 
     },
-    {date: "9/12/2023",
+    {date: "10/7/2023",
     slot: "Eve",
     event: "Sailing",
     crew: {
@@ -36,7 +36,43 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: "9/15/2023",
+    {date: "10/14/2023",
+    slot: "Day",
+    event: "Sailing",
+    crew: {
+        person1: { name: "Jerry" , guestOf: ""},
+        person2: { name: "Joe" , guestOf: ""},
+        person3: { name: "Sean" , guestOf: ""},
+        person4: { name: "Ian" , guestOf: ""},
+        person5: { name: "Marsh" , guestOf: ""},
+        person6: { name: "Johnny" , guestOf: ""},
+        person7: { name: "Kirsten" , guestOf: "Jerry"},
+        person8: { name: "Marissa" , guestOf: "Joe"},
+        person9: { name: "" , guestOf: ""},
+        person10: { name: "" , guestOf: ""},
+        person11: { name: "" , guestOf: ""},
+        person12: { name: "" , guestOf: ""},
+        }
+    },
+    {date: "10/15/2023",
+    slot: "Day",
+    event: "Sailing",
+    crew: {
+        person1: { name: "Jerry" , guestOf: ""},
+        person2: { name: "Joe" , guestOf: ""},
+        person3: { name: "Sean" , guestOf: ""},
+        person4: { name: "Ian" , guestOf: ""},
+        person5: { name: "Marsh" , guestOf: ""},
+        person6: { name: "Johnny" , guestOf: ""},
+        person7: { name: "Kirsten" , guestOf: "Jerry"},
+        person8: { name: "Marissa" , guestOf: "Joe"},
+        person9: { name: "" , guestOf: ""},
+        person10: { name: "" , guestOf: ""},
+        person11: { name: "" , guestOf: ""},
+        person12: { name: "" , guestOf: ""},
+        }
+    },
+    {date: "10/16/2023",
     slot: "Eve",
     event: "Sailing",
     crew: {
@@ -54,9 +90,9 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: "9/16/2023",
+    {date: "10/17/2023",
     slot: "Eve",
-    event: "Casino Trip",
+    event: "Sailing",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
         person2: { name: "Joe" , guestOf: ""},
@@ -72,9 +108,9 @@ window.days = [
         person12: { name: "" , guestOf: ""},
         }
     },
-    {date: "9/27/2023",
+    {date: "10/18/2023",
     slot: "Eve",
-    event: "Play Pen",
+    event: "Sailing",
     crew: {
         person1: { name: "Jerry" , guestOf: ""},
         person2: { name: "Joe" , guestOf: ""},
