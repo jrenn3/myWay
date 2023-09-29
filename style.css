@@ -17,12 +17,15 @@
 
 * {
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 body {
+    max-width: 500px;
+    justify-content: center;
     margin: 0;
-    background-color: var(--primary-light)
-    
+    background-color: var(--primary-light);
+    display: inline;
 }
 
 /*header styles*/
@@ -44,40 +47,48 @@ h2 {
     font-family: "Playfair Display", Arial, Helvetica, sans-serif;
 }
 
-/*toggle*/
-
-#agendaToggle {
-    color: var(--secondary);
+/*expedition crew*/
+.expeditions {
     display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-    background-color: var(--secondary-dark);
-    margin: 16px 24px 16px 24px;
-    border-radius: 8px;
+    align-items: center;
+    flex-direction: column;
 }
 
-#agendaToggle * {
-    margin: 0px;
-    height: 40px;
-    width: 100px;
+.day {
+    background-color: var(--greyLight-1);
+    margin: 10px;
+    max-width: 250px;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+table {
+    text-indent: none;
     display: flex;
     justify-content: center;
-    align-items: center;
-} 
-
-/*expedition crew*/
-.expedition {
-    margin: 0px 24px 0px 24px;
-    background-color: var(--secondary);
-    color: var(--primary);
-    border-radius: 8px;
+    text-align: left;
+    border-collapse: collapse; /* borders of adjacent cells collapse into a single border, creating a cleaner look */
 }
 
-.crewHeader, .expeditionDate, .person{
+tr {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-content: center;
-    margin: 0px 24px 0px 24px;
-    height: 40px;
+    padding: 4px 0px 4px 0px;
+} 
+
+.person {
+    border-top: 1px solid var(--greyLight-2);
+}
+
+.header {
+    padding: 10px 0px 4px 0px;
+    border-bottom: 1px solid var(--greyDark);
+}
+
+td + td, th + th {
+    text-align: right;
+}
+
+td, th{
+    min-width: 100px;
 }
