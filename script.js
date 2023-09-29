@@ -16,7 +16,7 @@ window.days = [
         person10: { name: "" , guestOf: ""},
         person11: { name: "" , guestOf: ""},
         person12: { name: "" , guestOf: ""},
-        }
+        } 
     },
     {date: "9/12/2023",
     slot: "Eve",
