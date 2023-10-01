@@ -12,10 +12,10 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         } 
     },
     {date: "10/7/2023",
@@ -30,10 +30,10 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         }
     },
     {date: "10/14/2023",
@@ -48,10 +48,10 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         }
     },
     {date: "10/15/2023",
@@ -66,10 +66,10 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         }
     },
     {date: "10/16/2023",
@@ -84,10 +84,10 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         }
     },
     {date: "10/17/2023",
@@ -102,10 +102,10 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         }
     },
     {date: "10/18/2023",
@@ -120,17 +120,24 @@ window.days = [
         person6: { name: "Johnny" , guestOf: ""},
         person7: { name: "Kirsten" , guestOf: "Jerry"},
         person8: { name: "Marissa" , guestOf: "Joe"},
-        person9: { name: "" , guestOf: ""},
-        person10: { name: "" , guestOf: ""},
-        person11: { name: "" , guestOf: ""},
-        person12: { name: "" , guestOf: ""},
+        person9: { name: null , guestOf: ""},
+        person10: { name: null , guestOf: ""},
+        person11: { name: null , guestOf: ""},
+        person12: { name: null , guestOf: ""},
         }
     }
 ]
 
-function countCrew(day) {
-    //arrow fuction a for loop to count the crew for one day
-}
+//arrow fuction for loop to count the crew for one day
+const crewCount = (obj) => {
+    let count = 0;
+    for (const key in obj.crew) {
+      if (obj.crew[key].name !== null) {
+        count++;
+        }
+    }
+    return count;
+};
 
 //render a single day
 function renderDay(day) {
@@ -200,6 +207,10 @@ function renderDay(day) {
                 <td class = "name">${day.crew.person12.name}</td>
                 <td class = "guestOf">${day.crew.person12.guestOf}</td>
             </tr>` : ""}
+            <tr class = "count">
+                <td>${crewCount(day)}/12 people</td>
+                <td></td> 
+            </tr>
         </table>
     `;
 }
