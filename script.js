@@ -15,7 +15,7 @@ window.days = [
         person9: { name: null , guestOf: ""},
         person10: { name: null , guestOf: ""},
         person11: { name: null , guestOf: ""},
-        person12: { name: null , guestOf: ""},
+        person12: { name: "" , guestOf: ""},
         } 
     },
     {date: "10/7/2023",
@@ -132,7 +132,7 @@ window.days = [
 const crewCount = (obj) => {
     let count = 0;
     for (const key in obj.crew) {
-      if (obj.crew[key].name !== null) {
+      if (obj.crew[key].name !== null && obj.crew[key].name.trim() !== "") {
         count++;
         }
     }
