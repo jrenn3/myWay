@@ -15,8 +15,6 @@ function fetchData() {
         });
 }
 
-
-
 function startEdit(element) { //NEED TO REVIEW
     var cell = element.parentNode;
     var oldValue = element.innerText;
@@ -45,10 +43,14 @@ function addName() {
     var rowData = { name: name, guestOf: guestOf, phone: phone };
     
     //****LEFT OFF HERE-FIND A WAY TO UPDATE SOME BACKGROUND DATA FOR A NEW TEAM MEMBER
-    var data = {};
+
+    var data = [];
     data = fetchData();
-    data.push(rowData);
+    console.log(typeof data);
     console.log(data);
+    var objectToModify = data.find(obj => obj.date === "10/2/2023");
+    objectToModify.person9 = rowData;
+    
 
     nameInput.value = "";
     guestOfInput.value = "";
