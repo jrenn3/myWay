@@ -1,6 +1,7 @@
 // //FIREBASE IMPORT
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCVEridJKO2vwHMAwD7SieDc1BA-W9Tys4",
@@ -18,6 +19,8 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
+console.log("hi");
+const analytics = getAnalytics(app);
 
 function startEdit(element) { //NEED TO REVIEW
     var cell = element.parentNode;
@@ -52,6 +55,19 @@ function startEdit(element) { //NEED TO REVIEW
 //             throw error; // You can handle the error as needed
 //         });
 // }
+
+//FIREBASE DATA GRAB
+// Assuming you have a collection named 'users'
+const usersCollection = database.collection('users');
+
+// Retrieve data from 'users' collection
+usersCollection.get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    // Access each document's data as a JSON object
+    const userData = doc.data();
+    console.log(userData);
+  });
+});
 
 function addName() {
     var nameInput = document.getElementById("nameInput-10/2/2023");
@@ -101,15 +117,13 @@ function removeName(button) {
 
 //RENDER FROM FIREBASE
 function render() {
-    databse.forEach(day => {
+    database.forEach(day => {
         const dayHtml = renderDay(day);
         // Append the rendered HTML to the container element
         const container = document.getElementById('expeditions'); 
         container.innerHTML += dayHtml;
     });
 };
-
-console.log(database);
 
 //arrow fuction for loop to count the crew for one day
 const crewCount = (obj) => {
