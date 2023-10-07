@@ -1,5 +1,5 @@
-[
-    {"date": "10/2/2023",
+{
+"20231002": {
     "slot": "Eve",
     "event": "Sailing",
     "crew": {
@@ -15,9 +15,9 @@
         "person10": { "name": null, "guestOf": "", "phone": ""},
         "person11": { "name": null, "guestOf": "", "phone": ""},
         "person12": { "name": "", "guestOf": "", "phone": ""}
-        } 
+        }
     },
-    {"date": "10/7/2023",
+"20231007" : {
     "slot": "Eve",
     "event": "Sailing",
     "crew": {
@@ -35,4 +35,4 @@
         "person12": { "name": "", "guestOf": "", "phone": ""}
         } 
     }
-]
+}
