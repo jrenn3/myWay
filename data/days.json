@@ -1,0 +1,38 @@
+{
+"20231002": {
+    "slot": "Eve",
+    "event": "Sailing",
+    "crew": {
+        "person1": { "name": "Jerry", "guestOf": "", "phone": 7343652707},
+        "person2": { "name": "Joe", "guestOf": "", "phone": 8104239965},
+        "person3": { "name": "Sean", "guestOf": "", "phone": 4402428580},
+        "person4": { "name": "Ian", "guestOf": "", "phone": 2489824359},
+        "person5": { "name": "Marsh", "guestOf": "", "phone": 2487673509},
+        "person6": { "name": "Johnny", "guestOf": "", "phone": 2488606056},
+        "person7": { "name": "Kirsten", "guestOf": "Jerry", "phone": 6193180488},
+        "person8": { "name": "Marissa", "guestOf": "Joe", "phone": 6195073910},
+        "person9": { "name": null, "guestOf": "", "phone": ""},
+        "person10": { "name": null, "guestOf": "", "phone": ""},
+        "person11": { "name": null, "guestOf": "", "phone": ""},
+        "person12": { "name": "", "guestOf": "", "phone": ""}
+        }
+    },
+"20231007" : {
+    "slot": "Eve",
+    "event": "Sailing",
+    "crew": {
+        "person1": { "name": "Jerry", "guestOf": "", "phone": 7343652707},
+        "person2": { "name": "Joe", "guestOf": "", "phone": 8104239965},
+        "person3": { "name": "Sean", "guestOf": "", "phone": 4402428580},
+        "person4": { "name": "Ian", "guestOf": "", "phone": 2489824359},
+        "person5": { "name": "", "guestOf": "", "phone": null},
+        "person6": { "name": "Johnny", "guestOf": "", "phone": 2488606056},
+        "person7": { "name": "", "guestOf": "", "phone": null},
+        "person8": { "name": "", "guestOf": "", "phone": null},
+        "person9": { "name": null, "guestOf": "", "phone": ""},
+        "person10": { "name": null, "guestOf": "", "phone": ""},
+        "person11": { "name": null, "guestOf": "", "phone": ""},
+        "person12": { "name": "", "guestOf": "", "phone": ""}
+        } 
+    }
+}

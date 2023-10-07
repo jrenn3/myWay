@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro:wght@400&display=swap");
+
+:root{
+    --primary: #124559;
+    --primary-light: #598392;
+    --primary-dark: #01161e;
+
+    --secondary: #eff6e0;
+    --secondary-dark: #aec3b0;
+
+    --accent: #c1cfc0;
+    
+    --white: #FFFFFF; 
+
+    --greyLight-1: #E4EBF5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
+    
+    --black: #3A3B3C;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+}
+
+body {
+    max-width: 500px;
+    justify-content: center;
+    margin: 0;
+    background-color: var(--primary-light);
+    display: inline;
+}
+
+/*header styles*/
+header {
+    padding: 0px 24px 0px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-light);
+}
+
+h1 {
+    font-family: "Playfair Display", Arial, Helvetica, sans-serif;
+    color: var(--primary);
+}
+
+h2 {
+    font-size: 2em; 
+    font-family: "Playfair Display", Arial, Helvetica, sans-serif;
+    color: var(--primary);
+}
+
+/*expedition crew*/
+#expeditions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.day {
+    background-color: var(--greyLight-1);
+    margin: 10px;
+    max-width: 250px;
+    justify-content: center;
+    padding: 20px 30px 20px 30px;
+    border-radius: 15px;
+    border: 1px solid var(--primary);
+}
+
+table {
+    text-indent: none;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    border-collapse: collapse; /* borders of adjacent cells collapse into a single border, creating a cleaner look */
+}
+
+tr {
+    display: flex;
+    padding: 4px 0px 4px 0px;
+} 
+
+.person {
+    border-top: 1px solid var(--greyLight-2);
+}
+
+.header {
+    padding: 10px 0px 4px 0px;
+    border-bottom: 1px solid var(--greyDark);
+}
+
+td + td, th + th {
+    text-align: right;
+}
+
+td, th{
+    min-width: 100px;
+}
