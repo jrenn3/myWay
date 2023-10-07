@@ -19,7 +19,8 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-console.log("hi");
+const dataRef = database.ref('my-way-yacht-default-rtdb/data');
+console.log(dataRef);
 const analytics = getAnalytics(app);
 
 function startEdit(element) { //NEED TO REVIEW
@@ -58,16 +59,16 @@ function startEdit(element) { //NEED TO REVIEW
 
 //FIREBASE DATA GRAB
 // Assuming you have a collection named 'users'
-const usersCollection = database.collection('users');
+// const usersCollection = database.collection('users');
 
-// Retrieve data from 'users' collection
-usersCollection.get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    // Access each document's data as a JSON object
-    const userData = doc.data();
-    console.log(userData);
-  });
-});
+// // Retrieve data from 'users' collection
+// usersCollection.get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//     // Access each document's data as a JSON object
+//     const userData = doc.data();
+//     console.log(userData);
+//   });
+// });
 
 function addName() {
     var nameInput = document.getElementById("nameInput-10/2/2023");
