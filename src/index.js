@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -19,17 +19,32 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-// const dataRef = database.ref('my-way-yacht-default-rtdb/data');
-// console.log(dataRef);
-// const analytics = getAnalytics(app);
+const dataRef = database.ref('my-way-yacht-default-rtdb/data');
+console.log(dataRef);
+
+const analytics = getAnalytics(app);
 
 console.log(database);
 
-const starCountRef = ref(database, 'posts/' + postId + '/starCount');
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});
+function FetchAllData() {
+  firebase
+    .database()
+    .ref("my-way-yacht-default-rtdb")
+    .once("value", function (snapshot) {
+      snapshot.forEach(function (ChildSnapshot) {
+        let dates = ChildSnapshot.val().date;
+        addItemsToList(dates);
+      });
+    });
+}
+
+console.log(dates);
+
+console.log(crewRef);
+// onValue(crewRef, (snapshot) => {
+//   const data = snapshot.val();
+//   updateStarCount(postElement, data);
+// });
 
 // function startEdit(element) { //NEED TO REVIEW
 //     var cell = element.parentNode;
