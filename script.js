@@ -13,7 +13,7 @@ const firebaseConfig = {
     measurementId: "G-B97V4WDN4Q"
 };
 
-// Initialize Firebase
+// Initialize Firebase 
 const app = initializeApp(firebaseConfig);
 
 // Initialize Realtime Database and get a reference to the service
