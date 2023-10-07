@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
 const dataRef = database.ref('my-way-yacht-default-rtdb/data');
-console.log(dataRef);
+console.log(database);
 const analytics = getAnalytics(app);
 
 function startEdit(element) { //NEED TO REVIEW

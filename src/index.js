@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -19,24 +19,33 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
+// const dataRef = database.ref('my-way-yacht-default-rtdb/data');
+// console.log(dataRef);
+// const analytics = getAnalytics(app);
+
 console.log(database);
-const analytics = getAnalytics(app);
 
-function startEdit(element) { //NEED TO REVIEW
-    var cell = element.parentNode;
-    var oldValue = element.innerText;
-    element.contentEditable = true;
-    element.focus();
+const starCountRef = ref(database, 'posts/' + postId + '/starCount');
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  updateStarCount(postElement, data);
+});
 
-    element.addEventListener("blur", function () {
-        var newValue = element.innerText;
-        element.contentEditable = false;
-        if (oldValue !== newValue) {
-            // Update the cell content and perform any necessary data update here
-            oldValue = newValue;
-        }
-    });
-}
+// function startEdit(element) { //NEED TO REVIEW
+//     var cell = element.parentNode;
+//     var oldValue = element.innerText;
+//     element.contentEditable = true;
+//     element.focus();
+
+//     element.addEventListener("blur", function () {
+//         var newValue = element.innerText;
+//         element.contentEditable = false;
+//         if (oldValue !== newValue) {
+//             // Update the cell content and perform any necessary data update here
+//             oldValue = newValue;
+//         }
+//     });
+// }
 
 //DATA GRAB FROM LOCAL JSON
 // function fetchData() {
@@ -56,18 +65,18 @@ function startEdit(element) { //NEED TO REVIEW
 //         });
 // }
 
-//FIREBASE DATA GRAB
-// Assuming you have a collection named 'users'
-const usersCollection = database.collection('users');
+// //FIREBASE DATA GRAB
+// // Assuming you have a collection named 'users'
+// const usersCollection = database.collection('users');
 
-// Retrieve data from 'users' collection
-usersCollection.get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    // Access each document's data as a JSON object
-    const userData = doc.data();
-    console.log(userData);
-  });
-});
+// // Retrieve data from 'users' collection
+// usersCollection.get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//     // Access each document's data as a JSON object
+//     const userData = doc.data();
+//     console.log(userData);
+//   });
+// });
 
 function addName() {
     var nameInput = document.getElementById("nameInput-10/2/2023");
