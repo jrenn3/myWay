@@ -233,6 +233,6 @@ function renderDay(day) {
 
 function main() {
     render();
-}
+}  
 
 window.addEventListener("DOMContentLoaded", main);
