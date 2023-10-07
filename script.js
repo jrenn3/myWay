@@ -1,19 +1,23 @@
-function fetchData() {
-    return fetch('days.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            return data; // This is the JavaScript object parsed from the JSON file
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-            throw error; // You can handle the error as needed
-        });
-}
+// //FIREBASE IMPORT
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCVEridJKO2vwHMAwD7SieDc1BA-W9Tys4",
+    authDomain: "my-way-yacht.firebaseapp.com",
+    databaseURL: "https://my-way-yacht-default-rtdb.firebaseio.com",
+    projectId: "my-way-yacht",
+    storageBucket: "my-way-yacht.appspot.com",
+    messagingSenderId: "682998640889",
+    appId: "1:682998640889:web:dc6d9610316b6926a2f228",
+    measurementId: "G-B97V4WDN4Q"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
 
 function startEdit(element) { //NEED TO REVIEW
     var cell = element.parentNode;
@@ -31,6 +35,24 @@ function startEdit(element) { //NEED TO REVIEW
     });
 }
 
+//DATA GRAB FROM LOCAL JSON
+// function fetchData() {
+//     return fetch('days.json')
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             return data; // This is the JavaScript object parsed from the JSON file
+//         })
+//         .catch(error => {
+//             console.error('Error fetching data:', error);
+//             throw error; // You can handle the error as needed
+//         });
+// }
+
 function addName() {
     var nameInput = document.getElementById("nameInput-10/2/2023");
     var guestOfInput = document.getElementById("guestOfInput-10/2/2023");
@@ -44,10 +66,7 @@ function addName() {
     
     //****LEFT OFF HERE-FIND A WAY TO UPDATE SOME BACKGROUND DATA FOR A NEW TEAM MEMBER
 
-    var data = [];
-    data = fetchData();
-    console.log(typeof data);
-    console.log(data);
+    console.log(database);
     var objectToModify = data.find(obj => obj.date === "10/2/2023");
     objectToModify.person9 = rowData;
     
@@ -62,22 +81,35 @@ function removeName(button) {
     row.parentNode.removeChild(row);
 }
 
+//RENDER FROM LOCAL JSON
+// function render() {
+//     return fetch('days.json')
+//         .then(response => response.json())
+//         .then(data => {
+//             // Iterate through the data and render each day
+//             data.forEach(day => {
+//                 const dayHtml = renderDay(day);
+//                 // Append the rendered HTML to the container element
+//                 const container = document.getElementById('expeditions'); 
+//                 container.innerHTML += dayHtml;
+//             });
+//         })
+//         .catch(error => {
+//             console.error('Error fetching data:', error);
+//         });
+// }
+
+//RENDER FROM FIREBASE
 function render() {
-    return fetch('days.json')
-        .then(response => response.json())
-        .then(data => {
-            // Iterate through the data and render each day
-            data.forEach(day => {
-                const dayHtml = renderDay(day);
-                // Append the rendered HTML to the container element
-                const container = document.getElementById('expeditions'); 
-                container.innerHTML += dayHtml;
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
+    databse.forEach(day => {
+        const dayHtml = renderDay(day);
+        // Append the rendered HTML to the container element
+        const container = document.getElementById('expeditions'); 
+        container.innerHTML += dayHtml;
+    });
+};
+
+console.log(database);
 
 //arrow fuction for loop to count the crew for one day
 const crewCount = (obj) => {
