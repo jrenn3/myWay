@@ -97,12 +97,11 @@ return `
     <input type="text" id="nameInput-${day.date}" placeholder="New name">
     <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
     <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
-    <button onclick="addName()">Add Name</button>
+    <button id="addName">Add Name</button>
   </div>
 `;
 }
   
-
 function render(days) {
   const element = document.querySelector("#expeditions");
   const dataValues = Object.values(days);//PUT THE OBJECTS IN AN ARRAY SO THE .map CAN WORK
@@ -117,7 +116,48 @@ function main() {
     .catch((error) => {
       console.error(error);
     });
+  document.querySelector("#addName").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
 }
 
-window.addEventListener("DOMContentLoaded", main);
-//To-do: Automate npx webpack when saving changes to the code.
+window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
+
+//BUTTON SYNTAX
+//to-do: add a button to each day that will add a new name to the crew list
+function addName() {
+  var nameInput = document.getElementById("nameInput");
+  var guestOfInput = document.getElementById("guestOfInput");
+  var phoneInput = document.getElementById("phoneInput");
+  var name = nameInput.value;
+  var guestOf = guestOfInput.value;
+  var phone = phoneInput.value;
+
+
+  // Determine the next available person slot (e.g., person9, person10, etc.)
+  var nextPersonSlot = null;
+  for (var i = 1; i <= 12; i++) {
+    if (!days["crew"]["person" + i].name) {
+      nextPersonSlot = "person" + i;
+      break;
+    }
+  }
+
+  if (nextPersonSlot) {
+    // Add the new data to the next available person slot
+    days["crew"][nextPersonSlot] = {
+      "name": name,
+      "guestOf": guestOf,
+      "phone": phone
+    };
+
+    // Update the HTML form fields
+    nameInput.value = "";
+    guestOfInput.value = "";
+    phoneInput.value = "";
+
+    // Optionally, you can update the UI to reflect the changes
+    // For example, re-render the day's data with the updated crew information
+
+  } else {
+    alert("No available slots for new crew members.");
+  }
+}
