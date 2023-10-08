@@ -51,85 +51,101 @@ window.days = fetchDataFromDatabase()
     console.error(error);
   });
 
+  
+
 //render a single day
 //FIX THE DATE CLASS
 //ADD BACK THE COUNT OF CREW OUT OF TOTAL
 function renderDay(day) {
     return `
-      <table class = "day">
-          <tr class = "date">
-              <td>TBD</td>
-              <td></td> 
-          </tr>
-          <tr class = "slot">
-              <td>${day.slot}</td>
-              <td></td> 
-          </tr>
-          <tr class = "event">
-              <td>${day.event}</td>
-              <td></td> 
-          </tr>
-          <tr class = "header">
-              <td>Crew</td>
-              <td>Guest of</td> 
-          </tr>
-          ${day.crew.person1.name ? `<tr class = "person1">
-              <td class = "name">${day.crew.person1.name}</td>
-              <td class = "guestOf">${day.crew.person1.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person2.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person2.name}</td>
-              <td class = "guestOf">${day.crew.person2.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person3.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person3.name}</td>
-              <td class = "guestOf">${day.crew.person3.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person4.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person4.name}</td>
-              <td class = "guestOf">${day.crew.person4.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person5.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person5.name}</td>
-              <td class = "guestOf">${day.crew.person5.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person6.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person6.name}</td>
-              <td class = "guestOf">${day.crew.person6.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person7.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person7.name}</td>
-              <td class = "guestOf">${day.crew.person7.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person8.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person8.name}</td>
-              <td class = "guestOf">${day.crew.person8.guestOf}</td> 
-          </tr>` : ""}
-          ${day.crew.person9.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person9.name}</td>
-              <td class = "guestOf">${day.crew.person9.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person10.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person10.name}</td>
-              <td class = "guestOf">${day.crew.person10.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person11.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person11.name}</td>
-              <td class = "guestOf">${day.crew.person11.guestOf}</td>
-          </tr>` : ""}
-          ${day.crew.person12.name ? `<tr class = "person">
-              <td class = "name">${day.crew.person12.name}</td>
-              <td class = "guestOf">${day.crew.person12.guestOf}</td>
-          </tr>` : ""}
-          <tr class = "count">
-              <td>TBD/12 people</td>
-              <td></td> 
-          </tr>
-      </table>
+    <div class = "day">
+    <p class = "date">${day.date}</p>
+    <p class = "slot">${day.slot}</p>
+    <p class = "event">${day.event}</p>
+    <table id = "crew-${day.date}">
+        <tr class = "header">
+            <td>Crew</td>
+            <td>Guest of</td> 
+        </tr>
+        ${day.crew.person1.name ? `<tr class = "person1">
+            <td class = "name">${day.crew.person1.name}</td>
+            <td class = "guestOf">${day.crew.person1.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person2.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person2.name}</td>
+            <td class = "guestOf">${day.crew.person2.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person3.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person3.name}</td>
+            <td class = "guestOf">${day.crew.person3.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person4.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person4.name}</td>
+            <td class = "guestOf">${day.crew.person4.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person5.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person5.name}</td>
+            <td class = "guestOf">${day.crew.person5.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person6.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person6.name}</td>
+            <td class = "guestOf">${day.crew.person6.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person7.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person7.name}</td>
+            <td class = "guestOf">${day.crew.person7.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person8.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person8.name}</td>
+            <td class = "guestOf">${day.crew.person8.guestOf}</td> 
+        </tr>` : ""}
+        ${day.crew.person9.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person9.name}</td>
+            <td class = "guestOf">${day.crew.person9.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person10.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person10.name}</td>
+            <td class = "guestOf">${day.crew.person10.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person11.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person11.name}</td>
+            <td class = "guestOf">${day.crew.person11.guestOf}</td>
+        </tr>` : ""}
+        ${day.crew.person12.name ? `<tr class = "person">
+            <td class = "name">${day.crew.person12.name}</td>
+            <td class = "guestOf">${day.crew.person12.guestOf}</td>
+        </tr>` : ""}
+    </table>
+    <input type="text" id="nameInput-${day.date}" placeholder="New name">
+    <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
+    <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
+    <button onclick="addName()">Add Name</button>  
+  </div>
   `;
 }
 
-//1)REFERENCE OLD VERSIONS TO ADD FORM INPUTS FOR NAME BACK
+//****FUNCTION IS NOT DEFINED IN THE RENDERED HTML*/
+function addName() {
+  var nameInput = document.getElementById("nameInput-20231002");
+  var guestOfInput = document.getElementById("guestOfInput-20231002");
+  var phoneInput = document.getElementById("phoneInput-20231002");
+  var name = nameInput.value;
+  var guestOf = guestOfInput.value;
+  var phone = phoneInput.value;
+
+  
+  var rowData = { name: name, guestOf: guestOf, phone: phone };
+  
+  // FIND A WAY TO UPDATE SOME BACKGROUND DATA FOR A NEW TEAM MEMBER
+  var objectToModify = data.find(obj => obj.date === "20231002");
+  objectToModify.person9 = rowData;
+  
+
+  nameInput.value = "";
+  guestOfInput.value = "";
+  phoneInput.value = "";
+}
+
 //2)THEN FIGURE OUT SYNTAX FOR UPDATING THE SERVER DATABASE IN REALTIME
 //3)THEN IT IS READY TO SHARE
 //4)ADD AUTHENTICATION
