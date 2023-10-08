@@ -1,5 +1,6 @@
 {
 "20231002": {
+    "date": "10/02/2023",
     "slot": "Eve",
     "event": "Sailing",
     "crew": {
@@ -9,7 +10,7 @@
         "person4": { "name": "Ian", "guestOf": "", "phone": 2489824359},
         "person5": { "name": "Marsh", "guestOf": "", "phone": 2487673509},
         "person6": { "name": "Johnny", "guestOf": "", "phone": 2488606056},
-        "person7": { "name": "Kirsten", "guestOf": "Jerry", "phone": 6193180488},
+        "person7": { "name": "", "guestOf": "", "phone": ""},
         "person8": { "name": "Marissa", "guestOf": "Joe", "phone": 6195073910},
         "person9": { "name": null, "guestOf": "", "phone": ""},
         "person10": { "name": null, "guestOf": "", "phone": ""},
@@ -18,6 +19,7 @@
         }
     },
 "20231007" : {
+    "date": "10/07/2023",
     "slot": "Eve",
     "event": "Sailing",
     "crew": {
