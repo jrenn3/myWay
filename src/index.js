@@ -58,7 +58,7 @@ function renderDay(day) {
     return `
       <table class = "day">
           <tr class = "date">
-              <td>TBD</td>
+              <td>${day.date}</td>
               <td></td> 
           </tr>
           <tr class = "slot">
@@ -121,10 +121,6 @@ function renderDay(day) {
               <td class = "name">${day.crew.person12.name}</td>
               <td class = "guestOf">${day.crew.person12.guestOf}</td>
           </tr>` : ""}
-          <tr class = "count">
-              <td>TBD/12 people</td>
-              <td></td> 
-          </tr>
       </table>
   `;
 }
