@@ -51,8 +51,6 @@ window.days = fetchDataFromDatabase()
     console.error(error);
   });
 
-  
-
 //render a single day
 //FIX THE DATE CLASS
 //ADD BACK THE COUNT OF CREW OUT OF TOTAL
@@ -124,27 +122,6 @@ function renderDay(day) {
   `;
 }
 
-//****FUNCTION IS NOT DEFINED IN THE RENDERED HTML*/
-function addName() {
-  var nameInput = document.getElementById("nameInput-20231002");
-  var guestOfInput = document.getElementById("guestOfInput-20231002");
-  var phoneInput = document.getElementById("phoneInput-20231002");
-  var name = nameInput.value;
-  var guestOf = guestOfInput.value;
-  var phone = phoneInput.value;
-
-  
-  var rowData = { name: name, guestOf: guestOf, phone: phone };
-  
-  // FIND A WAY TO UPDATE SOME BACKGROUND DATA FOR A NEW TEAM MEMBER
-  var objectToModify = data.find(obj => obj.date === "20231002");
-  objectToModify.person9 = rowData;
-  
-
-  nameInput.value = "";
-  guestOfInput.value = "";
-  phoneInput.value = "";
-}
 
 //2)THEN FIGURE OUT SYNTAX FOR UPDATING THE SERVER DATABASE IN REALTIME
 //3)THEN IT IS READY TO SHARE
