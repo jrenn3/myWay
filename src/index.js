@@ -117,10 +117,10 @@ function main() {
 fetchDataFromDatabase()
   .then((data) => {
     render(data, function() {
-      const addButton = document.querySelector("#addName20231002");
-      if (addButton) {
-        addButton.addEventListener("click", addName);
-      }
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach((button) => {
+        button.addEventListener("click", addName);
+      });
     });
   })
   .catch((error) => {
