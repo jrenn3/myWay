@@ -1,6 +1,32 @@
 {
-    "20231002": {
-      "date": "20231002",
+    "20231014": {
+      "date": "20231014",
+      "slot": "Day",
+      "event": "Sailing",
+      "crew": [
+        { "name": "Jerry", "guestOf": "", "phone": 7343652707 },
+        { "name": "Joe", "guestOf": "", "phone": 8104239965 },
+        { "name": "Sean", "guestOf": "", "phone": 4402428580 },
+        { "name": "Ian", "guestOf": "", "phone": 2489824359 },
+        { "name": "Johnny", "guestOf": "", "phone": 2488606056 },
+        { "name": "Marissa", "guestOf": "Joe", "phone": 6195073910 }
+      ]
+    },
+    "20231015": {
+      "date": "20231015",
+      "slot": "Day",
+      "event": "Sailing",
+      "crew": [
+        { "name": "Jerry", "guestOf": "", "phone": 7343652707 },
+        { "name": "Joe", "guestOf": "", "phone": 8104239965 },
+        { "name": "Sean", "guestOf": "", "phone": 4402428580 },
+        { "name": "Ian", "guestOf": "", "phone": 2489824359 },
+        { "name": "Marsh", "guestOf": "", "phone": 2487673509 },
+        { "name": "Johnny", "guestOf": "", "phone": 2488606056 }
+      ]
+    },
+    "20231016": {
+      "date": "20231016",
       "slot": "Eve",
       "event": "Sailing",
       "crew": [
@@ -9,12 +35,11 @@
         { "name": "Sean", "guestOf": "", "phone": 4402428580 },
         { "name": "Ian", "guestOf": "", "phone": 2489824359 },
         { "name": "Marsh", "guestOf": "", "phone": 2487673509 },
-        { "name": "Johnny", "guestOf": "", "phone": 2488606056 },
-        { "name": "Marissa", "guestOf": "Joe", "phone": 6195073910 }
+        { "name": "Johnny", "guestOf": "", "phone": 2488606056 }
       ]
     },
-    "20231007": {
-      "date": "20231007",
+    "20231017": {
+      "date": "20231017",
       "slot": "Eve",
       "event": "Sailing",
       "crew": [
@@ -22,6 +47,20 @@
         { "name": "Joe", "guestOf": "", "phone": 8104239965 },
         { "name": "Sean", "guestOf": "", "phone": 4402428580 },
         { "name": "Ian", "guestOf": "", "phone": 2489824359 },
+        { "name": "Marsh", "guestOf": "", "phone": 2487673509 },
+        { "name": "Johnny", "guestOf": "", "phone": 2488606056 }
+      ]
+    },
+    "20231018": {
+      "date": "20231018",
+      "slot": "Day",
+      "event": "Sailing",
+      "crew": [
+        { "name": "Jerry", "guestOf": "", "phone": 7343652707 },
+        { "name": "Joe", "guestOf": "", "phone": 8104239965 },
+        { "name": "Sean", "guestOf": "", "phone": 4402428580 },
+        { "name": "Ian", "guestOf": "", "phone": 2489824359 },
+        { "name": "Marsh", "guestOf": "", "phone": 2487673509 },
         { "name": "Johnny", "guestOf": "", "phone": 2488606056 }
       ]
     }
