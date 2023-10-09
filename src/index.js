@@ -134,42 +134,44 @@ fetchDataFromDatabase()
 window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
 
 //BUTTON SYNTAX
-//to-do: add a button to each day that will add a new name to the crew list
-function addName() {
-  var nameInput = document.getElementById("nameInput");
-  var guestOfInput = document.getElementById("guestOfInput");
-  var phoneInput = document.getElementById("phoneInput");
-  var name = nameInput.value;
-  var guestOf = guestOfInput.value;
-  var phone = phoneInput.value;
+//write a function that will add a new name to the crew list based on input from the user
+function addName(event) {
+  //get the date and time of the button that was clicked
 
+  const date = event.target.id.slice(7, 16);
 
-  // Determine the next available person slot (e.g., person9, person10, etc.)
-  var nextPersonSlot = null;
-  for (var i = 1; i <= 12; i++) {
-    if (!days["crew"]["person" + i].name) {
-      nextPersonSlot = "person" + i;
-      break;
-    }
-  }
+  //get the name input from the user
+  const nameInput = document.querySelector(`#nameInput-${date}`);
+  const guestOfInput = document.querySelector(`#guestOfInput-${date}`);
+  const phoneInput = document.querySelector(`#phoneInput-${date}`);
 
-  if (nextPersonSlot) {
-    // Add the new data to the next available person slot
-    days["crew"][nextPersonSlot] = {
-      "name": name,
-      "guestOf": guestOf,
-      "phone": phone
-    };
+  //To-do: add a check to see if the name and guest of inputs are blank
 
-    // Update the HTML form fields
-    nameInput.value = "";
-    guestOfInput.value = "";
-    phoneInput.value = "";
+  //create a new object with the input from the user
+  const newCrewMember = {
+    name: nameInput.value,
+    guestOf: guestOfInput.value,
+    phone: phoneInput.value
+  };
+  
+  const crewRef = fetchDataFromDatabase()
+  .then((days) => {  
+    return days[date]?.crew;
+      })
+  .catch((error) => {
+    console.error(error);
+  });
 
-    // Optionally, you can update the UI to reflect the changes
-    // For example, re-render the day's data with the updated crew information
+  console.log(crewRef);
+  
+  //add the new object to the database
+  const newCrewRef = crewRef.push(newCrewMember);
+  console.log(newCrewRef);
+  
+  // set(newCrewRef, newCrewMember);
 
-  } else {
-    alert("No available slots for new crew members.");
-  }
+  //clear the input fields
+  nameInput.value = "";
+  guestOfInput.value = "";
+  phoneInput.value = "";
 }
