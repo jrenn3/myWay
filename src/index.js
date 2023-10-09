@@ -11,8 +11,11 @@ import { initializeApp } from "firebase/app";
     Firebase Realtime Database. You can use these references to read or write data at those locations.
   -onValue: This function is used to attach a callback function that will be triggered whenever the 
     data at a specified database reference changes. It's commonly used to listen for real-time updates 
-    to data.*/
-import { getDatabase, ref, onValue } from "firebase/database";
+    to data.
+  -push: This function is used to append data to a list in the database. It generates a new child location 
+    using a unique key and returns a reference to it.
+    */
+import { getDatabase, ref, onValue, push, set, get } from "firebase/database";
 
 //Configuration to the My Way database
 const firebaseConfig = {
@@ -136,42 +139,39 @@ window.addEventListener("DOMContentLoaded", main);//Adds event listener to the w
 //BUTTON SYNTAX
 //write a function that will add a new name to the crew list based on input from the user
 function addName(event) {
-  //get the date and time of the button that was clicked
-
+  //get the date key of the button that was clicked
   const date = event.target.id.slice(7, 16);
 
-  //get the name input from the user
+  //get the inputs from the user
   const nameInput = document.querySelector(`#nameInput-${date}`);
   const guestOfInput = document.querySelector(`#guestOfInput-${date}`);
   const phoneInput = document.querySelector(`#phoneInput-${date}`);
 
   //To-do: add a check to see if the name and guest of inputs are blank
 
-  //create a new object with the input from the user
+  //create a new object with the input values
   const newCrewMember = {
     name: nameInput.value,
     guestOf: guestOfInput.value,
     phone: phoneInput.value
   };
-  
-  const crewRef = fetchDataFromDatabase()
-  .then((days) => {  
-    return days[date]?.crew;
-      })
-  .catch((error) => {
-    console.error(error);
-  });
 
-  console.log(crewRef);
-  
-  //add the new object to the database
-  const newCrewRef = crewRef.push(newCrewMember);
-  console.log(newCrewRef);
-  
-  // set(newCrewRef, newCrewMember);
+  const crewRef = ref(db, `/${date}/crew`);
+  get(crewRef)
+    .then((snapshot) => {
+      const currentCrew = snapshot.val() || []; // If the array doesn't exist yet, initialize it as an empty array
+      currentCrew.push(newCrewMember); // Append the new member to the array
 
-  //clear the input fields
-  nameInput.value = "";
-  guestOfInput.value = "";
-  phoneInput.value = "";
+      // Update the crew array in the database
+      set(crewRef, currentCrew);
+
+      // Clear the input fields
+      nameInput.value = "";
+      guestOfInput.value = "";
+      phoneInput.value = "";
+    })
+    .catch((error) => {
+      console.error("Error retrieving crew data: " + error.message);
+    });
+  main();
 }
