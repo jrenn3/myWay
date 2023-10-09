@@ -109,14 +109,15 @@ function render(days) {
 }
 
 function main() {
+document.querySelector("#addName").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
+console.log(document.querySelector("#addName"));
   fetchDataFromDatabase()
-    .then((data) => {
-      render(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  document.querySelector("#addName").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
+  .then((data) => {
+    render(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 }
 
 window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
