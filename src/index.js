@@ -129,9 +129,6 @@ fetchDataFromDatabase()
   .catch((error) => {
     console.error(error);
   });
-  // //To-do: need to add a callback function after the render is complete to add the event listener to the button
-  // console.log(document.querySelector("#addName20231002"));
-  // document.querySelector("#addName20231002").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
 }
 
 window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
@@ -173,5 +170,5 @@ function addName(event) {
     .catch((error) => {
       console.error("Error retrieving crew data: " + error.message);
     });
-  main();
+main();
 }
