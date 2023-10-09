@@ -97,7 +97,7 @@ return `
     <input type="text" id="nameInput-${day.date}" placeholder="New name">
     <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
     <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
-    <button id="addName">Add Name</button>
+    <button id="addName${day.date}">Add Name</button>
   </div>
 `;
 }
@@ -109,15 +109,16 @@ function render(days) {
 }
 
 function main() {
-document.querySelector("#addName").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
-console.log(document.querySelector("#addName"));
-  fetchDataFromDatabase()
+fetchDataFromDatabase()
   .then((data) => {
     render(data);
   })
   .catch((error) => {
     console.error(error);
   });
+  //To-do: need to add a callback function after the render is complete to add the event listener to the button
+  console.log(document.querySelector("#addName20231002"));
+  document.querySelector("#addName20231002").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
 }
 
 window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
