@@ -102,23 +102,33 @@ return `
 `;
 }
   
-function render(days) {
+function render(days, callback) {
   const element = document.querySelector("#expeditions");
-  const dataValues = Object.values(days);//PUT THE OBJECTS IN AN ARRAY SO THE .map CAN WORK
+  const dataValues = Object.values(days);//puts the objects into an arry so .map can work
   element.innerHTML = dataValues.map(renderDay).join("");
+  
+  // Call the callback function after rendering is complete
+  if (typeof callback === "function") {
+    callback();
+  }
 }
 
 function main() {
 fetchDataFromDatabase()
   .then((data) => {
-    render(data);
+    render(data, function() {
+      const addButton = document.querySelector("#addName20231002");
+      if (addButton) {
+        addButton.addEventListener("click", addName);
+      }
+    });
   })
   .catch((error) => {
     console.error(error);
   });
-  //To-do: need to add a callback function after the render is complete to add the event listener to the button
-  console.log(document.querySelector("#addName20231002"));
-  document.querySelector("#addName20231002").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
+  // //To-do: need to add a callback function after the render is complete to add the event listener to the button
+  // console.log(document.querySelector("#addName20231002"));
+  // document.querySelector("#addName20231002").addEventListener("click", addName);//Adds event listener to the button after the page is loaded
 }
 
 window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
