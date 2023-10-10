@@ -77,7 +77,7 @@ function renderCrew(crew, date) {
       <tr class="person">
         <td class="name">${member.name}</td>
         <td class="guestOf">${member.guestOf}</td>
-        <td><button id="removeName-${date}-${index}">(-)</button></td>
+        <td><button id="removeName-${date}-${index}">-</button></td>
       </tr>
       `;
     })
