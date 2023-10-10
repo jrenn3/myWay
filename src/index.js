@@ -70,14 +70,15 @@ function fetchDataFromDatabase() {
 }
 
 //RENDERING
-function renderCrew(crew) {
+function renderCrew(crew, date) {
   return crew
-    .map((member) => {
+    .map((member, index) => {
       return `
-        <tr class="person">
-          <td class="name">${member.name}</td>
-          <td class="guestOf">${member.guestOf}</td>
-        </tr>
+      <tr class="person">
+        <td class="name">${member.name}</td>
+        <td class="guestOf">${member.guestOf}</td>
+        <td><button id="removeName-${date}-${index}">(-)</button></td>
+      </tr>
       `;
     })
     .join("");
@@ -94,8 +95,9 @@ return `
       <tr class="header">
         <td>Crew</td>
         <td>Guest of</td>
+        <td>Remove</td>
       </tr>
-      ${renderCrew(day.crew)}
+      ${renderCrew(day.crew, day.date)}
     </table>
     <input type="text" id="nameInput-${day.date}" placeholder="New name">
     <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
@@ -122,7 +124,11 @@ fetchDataFromDatabase()
     render(data, function() {
       const buttons = document.querySelectorAll("button");
       buttons.forEach((button) => {
-        button.addEventListener("click", addName);
+        if (button.id.startsWith("addName")) {
+          button.addEventListener("click", addName);
+        } else if (button.id.startsWith("removeName")) {
+          button.addEventListener("click", removeName);
+        }
       });
     });
   })
@@ -134,7 +140,6 @@ fetchDataFromDatabase()
 window.addEventListener("DOMContentLoaded", main);//Adds event listener to the window after the page is loaded
 
 //BUTTON SYNTAX
-//write a function that will add a new name to the crew list based on input from the user
 function addName(event) {
   //get the date key of the button that was clicked
   const date = event.target.id.slice(7, 16);
@@ -166,9 +171,29 @@ function addName(event) {
       nameInput.value = "";
       guestOfInput.value = "";
       phoneInput.value = "";
+      main(); // Re-render the page
     })
     .catch((error) => {
       console.error("Error retrieving crew data: " + error.message);
     });
 main();
+}
+
+function removeName(event) {
+  const date = event.target.id.slice(11, 19);
+  const index = event.target.id.slice(20, 22);
+
+  const crewRef = ref(db, `/${date}/crew`);
+  get(crewRef)
+    .then((snapshot) => {
+      const currentCrew = snapshot.val() || [];
+      if (index >= 0 && index < currentCrew.length) {
+        currentCrew.splice(index, 1); // Remove the member from the array
+        set(crewRef, currentCrew); // Update the crew array in the database
+        main(); // Re-render the page
+      }
+    })
+    .catch((error) => {
+      console.error("Error retrieving crew data: " + error.message);
+    });
 }
