@@ -76,6 +76,7 @@ table {
     justify-content: center;
     text-align: left;
     border-collapse: collapse; /* borders of adjacent cells collapse into a single border, creating a cleaner look */
+    margin: 0px 0px 16px 0px;
 }
 
 tr {
@@ -97,5 +98,14 @@ td + td, th + th {
 }
 
 td, th{
-    min-width: 100px;
+    min-width: 80px;
+}
+
+td + td + td, th + th + th {
+    min-width: 20px;
+    align-items: right;
+}
+
+button {
+    display: block;
 }

@@ -95,7 +95,7 @@ return `
       <tr class="header">
         <td>Crew</td>
         <td>Guest of</td>
-        <td>Remove</td>
+        <td></td>
       </tr>
       ${renderCrew(day.crew, day.date)}
     </table>
