@@ -26,20 +26,14 @@
 }
 
 body {
-    max-width: 500px;
-    justify-content: center;
-    margin: 0;
     background-color: var(--primary-light);
-    display: inline;
 }
 
-/*header styles*/
+/*HEADER STYLES*/
 header {
     padding: 0px 24px 0px 24px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--primary-light);
+    justify-content: center;
 }
 
 h1 {
@@ -47,13 +41,7 @@ h1 {
     color: var(--primary);
 }
 
-h2 {
-    font-size: 2em; 
-    font-family: "Playfair Display", Arial, Helvetica, sans-serif;
-    color: var(--primary);
-}
-
-/*expedition crew*/
+/*EXPEDITION STYLES*/
 #expeditions {
     display: flex;
     align-items: center;
@@ -63,23 +51,33 @@ h2 {
 .day {
     background-color: var(--greyLight-1);
     margin: 10px;
-    max-width: 250px;
-    justify-content: center;
+    min-width: 250px;
     padding: 20px 30px 20px 30px;
     border-radius: 15px;
     border: 1px solid var(--primary);
-}
-
-table {
-    text-indent: none;
     display: flex;
-    justify-content: center;
-    text-align: left;
-    border-collapse: collapse; /* borders of adjacent cells collapse into a single border, creating a cleaner look */
-    margin: 0px 0px 16px 0px;
+    flex-direction: column;
 }
 
-tr {
+p {
+    margin: 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+/*CREW STYLES*/
+table {
+    justify-content: center;
+    margin: 0px 0px 16px 0px;
+    width: 100%;
+    table-layout: auto;
+    
+}
+
+.day tr {
     display: flex;
     padding: 4px 0px 4px 0px;
 } 
@@ -93,17 +91,17 @@ tr {
     border-bottom: 1px solid var(--greyDark);
 }
 
+td {
+    width: 50%;
+}
+
 td + td, th + th {
     text-align: right;
 }
 
-td, th{
-    min-width: 80px;
-}
-
 td + td + td, th + th + th {
-    min-width: 20px;
     align-items: right;
+    width : 20.4453px;
 }
 
 button {
