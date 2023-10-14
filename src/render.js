@@ -19,9 +19,9 @@ return crew
 function renderDay(day) {
 return `
 <div class="day">
-    <p class="date">Date: ${moment(day.date).format('ddd MMM DD')}</p>
-    <p class="slot">Slot: ${day.slot}</p>
-    <p class="event">Event: ${day.event}</p>
+    <p class="date">${moment(day.date).format('ddd MMM DD')}</p>
+    <p class="slot">${day.slot}</p>
+    <p class="event">${day.event}</p>
     <table id="crew-${day.date}">
     <tr class="header">
         <td>Crew</td>
