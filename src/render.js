@@ -1,3 +1,5 @@
+import { moment } from 'moment';
+
 //RENDERING
 function renderCrew(crew, date) {
 return crew
@@ -13,11 +15,13 @@ return crew
     .join("");
 }
 
+
+
 //To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
 function renderDay(day) {
 return `
 <div class="day">
-    <p class="date">Date: ${day.date}</p>
+    <p class="date">Date: ${moment(day.date).format('MMMM DD, YYYY')}</p>
     <p class="slot">Slot: ${day.slot}</p>
     <p class="event">Event: ${day.event}</p>
     <table id="crew-${day.date}">
