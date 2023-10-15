@@ -59,11 +59,18 @@ h1 {
 p {
     margin: 0px;
     padding: 10px 0px 10px 0px;
+    display: flex;
+    align-items: center; /* Vertically center the items */
 }
 
 input {
     margin-bottom: 10px;
 }
+
+.icon {
+    height: 1em; /* Make the icon's height match the container's height */
+    margin-left: 5px; /* Adjust the spacing between text and icon as needed */
+  }
 
 /*CREW STYLES*/
 table {
