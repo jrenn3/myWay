@@ -3,18 +3,15 @@
 :root{
     --primary: #124559;
     --primary-light: #598392;
-    --primary-dark: #01161e;
 
-    --secondary: #eff6e0;
-    --secondary-dark: #aec3b0;
+    --secondary: #eff6e0; /*not yet used*/
 
-    --accent: #c1cfc0;
+    --accent: #c1cfc0; /*not yet used*/
     
-    --white: #FFFFFF; 
+    --white: #FFFFFF; /*not yet used*/
 
     --greyLight-1: #E4EBF5;
     --greyLight-2: #c8d0e7;
-    --greyLight-3: #bec8e4;
     --greyDark: #9baacf;
     
     --black: #3A3B3C;
@@ -62,11 +59,18 @@ h1 {
 p {
     margin: 0px;
     padding: 10px 0px 10px 0px;
+    display: flex;
+    align-items: center; /* Vertically center the items */
 }
 
 input {
     margin-bottom: 10px;
 }
+
+.icon {
+    height: 1em; /* Make the icon's height match the container's height */
+    margin-left: 5px; /* Adjust the spacing between text and icon as needed */
+  }
 
 /*CREW STYLES*/
 table {
