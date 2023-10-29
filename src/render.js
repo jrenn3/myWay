@@ -1,4 +1,15 @@
 import moment from 'moment';
+//Icon mapping
+const iconLookup = {
+    'Sailing' : '../assets/icons/sailboat.png',
+    'Fireworks' : '../assets/icons/fireworks.png',
+    'Play Pen' : '../assets/icons/toast.png'
+}
+
+function getIcon (event) {
+    // Using an object
+    return iconLookup[event] || '../assets/icons/sailboat.png'
+}
 
 //RENDERING
 function renderCrew(crew, date) {
@@ -26,7 +37,7 @@ const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" clas
 //Define the icon image source using sailboat.png if day.event === "Sailing"
 // const eventIconSrc = day.event === "Sailing" ? "../assets/icons/sailboat.png";
 // Create an <img> element with the icon source
-const eventIcon = `<img src="../assets/icons/sailboat.png" alt="${day.event}" class="icon">`;
+const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
 
 return `
 <div class="day">
