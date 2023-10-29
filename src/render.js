@@ -1,5 +1,5 @@
 import moment from 'moment';
-//Icon mapping
+//ICON MAPPING
 const iconLookup = {
     'Sailing' : '../assets/icons/sailboat.png',
     'Fireworks' : '../assets/icons/fireworks.png',
@@ -10,6 +10,9 @@ function getIcon (event) {
     // Using an object
     return iconLookup[event] || '../assets/icons/sailboat.png'
 }
+
+//To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
+
 
 //RENDERING
 function renderCrew(crew, date) {
@@ -26,7 +29,7 @@ return crew
     .join("");
 }
 
-//To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
+
 function renderDay(day) {
 
 // Define the icon image source based on day.slot
@@ -34,9 +37,7 @@ const slotIconSrc = day.slot === "Day" ? "../assets/icons/sun.png" : (day.slot =
 // Create an <img> element with the icon source
 const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
 
-//Define the icon image source using sailboat.png if day.event === "Sailing"
-// const eventIconSrc = day.event === "Sailing" ? "../assets/icons/sailboat.png";
-// Create an <img> element with the icon source
+//Icon
 const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
 
 return `
