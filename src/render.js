@@ -62,12 +62,13 @@ return `
 }
 
 export function render(days, callback) {
-const element = document.querySelector("#expeditions");
-const dataValues = Object.values(days);//puts the objects into an arry so .map can work
-element.innerHTML = dataValues.map(renderDay).join("");
+    const element = document.querySelector("#expeditions");
+    const currentDate = moment(); // Get the current date
+    const futureDays = Object.values(days).filter((day) => moment(day.date).isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
+    element.innerHTML = futureDays.map(renderDay).join("");
 
-// Call the callback function after rendering is complete
-if (typeof callback === "function") {
-    callback();
-}
+    // Call the callback function after rendering is complete
+    if (typeof callback === "function") {
+        callback();
+    }
 }
