@@ -70,5 +70,5 @@ export function render(days, callback) {
     // Call the callback function after rendering is complete
     if (typeof callback === "function") {
         callback();
-    }
+    } 
 }
