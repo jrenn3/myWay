@@ -39,7 +39,7 @@ h1 {
 }
 
 /*EXPEDITION STYLES*/
-#expeditions {
+#expeditions { 
     display: flex;
     align-items: center;
     flex-direction: column;
