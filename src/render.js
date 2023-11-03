@@ -61,11 +61,16 @@ return `
 `;
 }
 
-export function render(days, callback) {
+export function render(days, showPast, callback) {
     const element = document.querySelector("#expeditions");
     const currentDate = moment().format('YYYYMMDD'); // Get the current date
-    const futureDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
-    element.innerHTML = futureDays.map(renderDay).join("");
+    let filteredDays;
+    if(showPast) {
+        filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
+    } else {
+        filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
+    }
+    element.innerHTML = filteredDays.map(renderDay).join("");
 
     // Call the callback function after rendering is complete
     if (typeof callback === "function") {
