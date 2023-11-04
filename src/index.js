@@ -5,7 +5,7 @@ import { addName, removeName } from './events';
 export function main() {
 fetchDataFromDatabase()
   .then((data) => {
-    render(data, function() {
+    render(data, false, function() {
       const buttons = document.querySelectorAll("button");
       buttons.forEach((button) => {
         if (button.id.startsWith("addName")) {

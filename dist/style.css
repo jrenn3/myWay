@@ -38,6 +38,13 @@ h1 {
     color: var(--primary);
 }
 
+/* MAIN STYLES */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /*EXPEDITION STYLES*/
 #expeditions { 
     display: flex;

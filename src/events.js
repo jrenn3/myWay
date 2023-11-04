@@ -1,6 +1,7 @@
 import { ref, push, set, get } from "firebase/database";
-import { db } from './data';
+import { db, fetchDataFromDatabase } from './data';
 import { main } from './index'
+import { render } from './render';
 
 //BUTTON SYNTAX
 export function addName(event) {
@@ -60,3 +61,11 @@ export function removeName(event) {
     console.error("Error retrieving crew data: " + error.message);
     });
 }
+
+document.querySelector('#toggleDays').addEventListener('click', function() {
+    const showPast = this.innerText === "Show Past";
+    fetchDataFromDatabase()
+    .then((data) => {
+        render(data, showPast, function(){})});
+    this.innerText = showPast ? "Show Upcoming" : "Show Past";
+});
