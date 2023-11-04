@@ -1,5 +1,5 @@
 import { ref, push, set, get } from "firebase/database";
-import { db } from './data';
+import { db, fetchDataFromDatabase } from './data';
 import { main } from './index'
 import { render } from './render';
 
@@ -63,9 +63,9 @@ export function removeName(event) {
 }
 
 document.querySelector('#toggleDays').addEventListener('click', function() {
-    // Assuming 'days' variable is available globally or in this scope
-    // and contains the data you are rendering
     const showPast = this.innerText === "Show Past";
-    render(days, showPast, ); // 'callbackFunction' should be replaced with the actual callback function you are using
+    fetchDataFromDatabase()
+    .then((data) => {
+        render(data, showPast, function(){})});
     this.innerText = showPast ? "Show Upcoming" : "Show Past";
 });

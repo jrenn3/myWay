@@ -62,10 +62,12 @@ return `
 }
 
 export function render(days, showPast, callback) {
-    const element = document.querySelector("#expeditions");
+    const element = document.querySelector("#expeditions"); //select the expeditions elements
     const currentDate = moment().format('YYYYMMDD'); // Get the current date
-    let filteredDays;
-    if(showPast) {
+    let filteredDays; //create the variable to hold the days that show in the view
+    console.log(showPast);
+    if(showPast) { //if 
+        console.log(Object.values(days));
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
