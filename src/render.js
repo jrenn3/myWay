@@ -39,7 +39,6 @@ const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" clas
 
 //Icon
 const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
-
 return `
 <div class="day">
     <p class="date">${moment(day.date).format('ddd MMM DD')}</p>
@@ -51,7 +50,7 @@ return `
         <td>Guest of</td>
         <td></td>
     </tr>
-    ${renderCrew(day.crew, day.date)}
+    ${day.crew === undefined ? "" : renderCrew(day.crew, day.date)}
     </table>
     <input type="text" id="nameInput-${day.date}" placeholder="New name">
     <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
@@ -65,9 +64,7 @@ export function render(days, showPast, callback) {
     const element = document.querySelector("#expeditions"); //select the expeditions elements
     const currentDate = moment().format('YYYYMMDD'); // Get the current date
     let filteredDays; //create the variable to hold the days that show in the view
-    console.log(showPast);
     if(showPast) { //if 
-        console.log(Object.values(days));
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
