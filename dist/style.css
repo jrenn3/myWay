@@ -42,7 +42,11 @@ h1 {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+}
+
+main button {
+    width: 150px;
 }
 
 /*EXPEDITION STYLES*/
@@ -115,6 +119,6 @@ td + td + td, th + th + th {
     width : 20.4453px;
 }
 
-button {
-    display: block;
-}
+/* button {
+    display: block; 
+} */
