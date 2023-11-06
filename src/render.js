@@ -29,7 +29,6 @@ return crew
     .join("");
 }
 
-
 function renderDay(day) {
 
 // Define the icon image source based on day.slot
@@ -41,7 +40,7 @@ const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" clas
 const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
 return `
 <div class="day">
-    <p class="date">${moment(day.date).format('ddd MMM DD')}</p>
+    <p class="date">${moment(day.date).format('ddd MMM D')}</p>
     <p class="slot">${day.slot}${slotIcon}</p>
     <p class="event">${day.event}${eventIcon}</p>
     <table id="crew-${day.date}">
@@ -60,16 +59,35 @@ return `
 `;
 }
 
+function renderDayShort(day) {
+    // Define the icon image source based on day.slot
+    const slotIconSrc = day.slot === "Day" ? "../assets/icons/sun.png" : (day.slot === "Eve" ? "../assets/icons/sunset.png" : "");
+    // Create an <img> element with the icon source
+    const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
+
+    //Icon
+    const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
+    return `
+    <div class="day">
+        <p class="date">${moment(day.date).format('ddd MMM D YY')}</p>
+        <p class="slot">${day.slot}${slotIcon}</p>
+        <p class="event">${day.event}${eventIcon}</p>
+    </div>
+    `;
+}
+
 export function render(days, showPast, callback) {
     const element = document.querySelector("#expeditions"); //select the expeditions elements
     const currentDate = moment().format('YYYYMMDD'); // Get the current date
     let filteredDays; //create the variable to hold the days that show in the view
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
+        element.innerHTML = filteredDays.map(renderDayShort).join("");
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
+        element.innerHTML = filteredDays.map(renderDay).join("");
     }
-    element.innerHTML = filteredDays.map(renderDay).join("");
+    
 
     // Call the callback function after rendering is complete
     if (typeof callback === "function") {
