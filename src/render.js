@@ -36,20 +36,25 @@ const slotIconSrc = day.slot === "Day" ? "../assets/icons/sun.png" : (day.slot =
 // Create an <img> element with the icon source
 const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
 
-//Icon
-const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
+let eventSyntax = '';
+console.log(`Event: ${day.event}`, `Type: ${typeof day.event}`);
+if(day.event !== "" && day.event !== null && day.event !== undefined){
+    const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
+    eventSyntax = `<p class="event">${day.event}${eventIcon}</p>`
+}
+
 return `
 <div class="day">
     <p class="date">${moment(day.date).format('ddd MMM D')}</p>
     <p class="slot">${day.slot}${slotIcon}</p>
-    <p class="event">${day.event}${eventIcon}</p>
+    ${eventSyntax}
     <table id="crew-${day.date}">
     <tr class="header">
         <td>Crew</td>
         <td>Guest of</td>
         <td></td>
     </tr>
-    ${day.crew === undefined ? "" : renderCrew(day.crew, day.date)}
+    ${day.crew ? renderCrew(day.crew, day.date) : ""}
     </table>
     <input type="text" id="nameInput-${day.date}" placeholder="New name">
     <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
