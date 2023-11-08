@@ -37,7 +37,7 @@ const slotIconSrc = day.slot === "Day" ? "../assets/icons/sun.png" : (day.slot =
 const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
 
 let eventSyntax = '';
-console.log(`Event: ${day.event}`, `Type: ${typeof day.event}`);
+
 if(day.event !== "" && day.event !== null && day.event !== undefined){
     const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
     eventSyntax = `<p class="event">${day.event}${eventIcon}</p>`
@@ -71,12 +71,18 @@ function renderDayShort(day) {
     const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
 
     //Icon
-    const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
+    let eventSyntax = '';
+
+    if(day.event !== "" && day.event !== null && day.event !== undefined){
+        const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
+        eventSyntax = `<p class="event">${day.event}${eventIcon}</p>`
+    }
+    
     return `
     <div class="day">
         <p class="date">${moment(day.date).format('ddd MMM D YY')}</p>
         <p class="slot">${day.slot}${slotIcon}</p>
-        <p class="event">${day.event}${eventIcon}</p>
+        ${eventSyntax}
     </div>
     `;
 }
