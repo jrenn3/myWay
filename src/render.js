@@ -70,7 +70,6 @@ function renderDayShort(day) {
     // Create an <img> element with the icon source
     const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
 
-    //Icon
     let eventSyntax = '';
 
     if(day.event !== "" && day.event !== null && day.event !== undefined){
