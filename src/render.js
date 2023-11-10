@@ -92,7 +92,7 @@ export function render(days, showPast, callback) {
     let filteredDays; //create the variable to hold the days that show in the view
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
-        element.innerHTML = filteredDays.map(renderDayShort).join("");
+        element.innerHTML = filteredDays.map(renderDayShort).join(""); 
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
         element.innerHTML = filteredDays.map(renderDay).join("");
