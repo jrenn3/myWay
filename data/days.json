@@ -134,5 +134,18 @@
       { "name": "Johnny", "guestOf": "", "phone": 2488606056 },
       { "name": "Marsh", "guestOf": "", "phone": null }
     ]
+  },
+  "20240721": {
+    "date": "20240721",
+    "slot": "Day",
+    "event": "Fireworks",
+    "crew": [
+      { "name": "Jerry", "guestOf": "", "phone": 7343652707 },
+      { "name": "Joe", "guestOf": "", "phone": 8104239965 },
+      { "name": "Sean", "guestOf": "", "phone": 4402428580 },
+      { "name": "Ian", "guestOf": "", "phone": 2489824359 },
+      { "name": "Johnny", "guestOf": "", "phone": 2488606056 },
+      { "name": "Marsh", "guestOf": "", "phone": null }
+    ]
   }
 }
