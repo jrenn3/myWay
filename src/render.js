@@ -25,7 +25,7 @@ return crew
     <tr class="person">
         <td class="name">${member.name}</td>
         <td class="guestOf">${member.guestOf}</td>
-        <td><button id="removeName-${date}-${index}">-</button></td>
+        <td><button class="removeNameButton" id="removeName-${date}-${index}">-</button></td>
     </tr>
     `;
     })
@@ -93,6 +93,7 @@ export function render(days, showPast, callback) {
     const element = document.querySelector("#expeditions"); //select the expeditions elements
     const currentDate = moment().format('YYYYMMDD'); // Get the current date
     let filteredDays; //create the variable to hold the days that show in the view
+    console.log(days);
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
         element.innerHTML = filteredDays.map(renderDayShort).join(""); 

@@ -119,6 +119,10 @@ td + td + td, th + th + th {
     width : 20.4453px;
 }
 
+.removeNameButton {
+    width: auto;
+}
+
 /* button {
     display: block; 
 } */
