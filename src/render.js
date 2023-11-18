@@ -1,18 +1,21 @@
 import moment from 'moment';
 //ICON MAPPING
-const iconLookup = {
+const slotIcon = {
+    'Day' : '../assets/icons/sun.png',
+    'Eve' : '../assets/icons/sunset.png'
+}
+
+const eventIcon = {
     'Sailing' : '../assets/icons/sailboat.png',
     'Fireworks' : '../assets/icons/fireworks.png',
     'Play Pen' : '../assets/icons/toast.png'
 }
 
 function getIcon (event) {
-    // Using an object
-    return iconLookup[event] || '../assets/icons/sailboat.png'
+    return eventIcon[event]
 }
 
 //To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
-
 
 //RENDERING
 function renderCrew(crew, date) {
