@@ -1,18 +1,16 @@
 import moment from 'moment';
-//ICON MAPPING
-const slotIcon = {
-    'Day' : '../assets/icons/sun.png',
-    'Eve' : '../assets/icons/sunset.png'
-}
 
-const eventIcon = {
+//ICON MAPPING
+const iconLookup = {
+    'Day' : '../assets/icons/sun.png',
+    'Eve' : '../assets/icons/sunset.png',
     'Sailing' : '../assets/icons/sailboat.png',
     'Fireworks' : '../assets/icons/fireworks.png',
     'Play Pen' : '../assets/icons/toast.png'
 }
 
-function getIcon (event) {
-    return eventIcon[event]
+function getIcon (iconKey) {
+    return iconLookup[iconKey]
 }
 
 //To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
@@ -35,9 +33,7 @@ return crew
 function renderDay(day) {
 
 // Define the icon image source based on day.slot
-const slotIconSrc = day.slot === "Day" ? "../assets/icons/sun.png" : (day.slot === "Eve" ? "../assets/icons/sunset.png" : "");
-// Create an <img> element with the icon source
-const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
+const slotIcon = `<img src="${getIcon(day.slot)}" alt="${day.event}" class="icon">`;
 
 let eventSyntax = '';
 

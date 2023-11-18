@@ -1,5 +1,5 @@
 {
-  "20220609":{"date":"20220609","slot":"Eve","event":null},
+  "20220609":{"date":"20220609","slot":"Eve","event":"Sailing"},
   "20220623":{"date":"20220623","slot":"Eve","event":null},
   "20220702":{"date":"20220702","slot":"Day","event":null},
   "20220728":{"date":"20220728","slot":"Eve","event":null},
@@ -13,7 +13,7 @@
   "20220805":{"date":"20220805","slot":"Day","event":null},
   "20220827":{"date":"20220827","slot":"Day","event":null},
   "20220915":{"date":"20220915","slot":"Eve","event":null},
-  "20220601":{"date":"20220601","slot":"Eve","event":null},
+  "20220601":{"date":"20220601","slot":"Eve","event":"Play Pen"},
   "20220814":{"date":"20220814","slot":"Day","event":null},
   "20220910":{"date":"20220910","slot":"Day","event":null},
   "20220922":{"date":"20220922","slot":"Eve","event":null},
