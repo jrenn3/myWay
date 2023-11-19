@@ -30,10 +30,15 @@ return crew
     .join("");
 }
 
+function slotSyntax(slot, event){
+    return `<img src="${getIcon(slot)}" alt="${event}" class="icon">`;
+}
+
 function renderDay(day) {
 
 // Define the icon image source based on day.slot
-const slotIcon = `<img src="${getIcon(day.slot)}" alt="${day.event}" class="icon">`;
+
+const slotIcon = slotSyntax(day.slot, day.event);
 
 let eventSyntax = '';
 
