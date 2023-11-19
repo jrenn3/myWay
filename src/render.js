@@ -16,76 +16,62 @@ function getIcon (iconKey) {
 //To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
 
 //RENDERING
-function renderCrew(crew, date) {
-return crew
-    .map((member, index) => {
-    return `
-    <tr class="person">
-        <td class="name">${member.name}</td>
-        <td class="guestOf">${member.guestOf}</td>
-        <td><button class="removeNameButton" id="removeName-${date}-${index}">-</button></td>
-    </tr>
-    `;
-    })
-    .join("");
+function renderCrewTable(crew, date) {
+    const tableSyntax = 
+        `<table id="crew-${date}">
+            <tr class="header">
+                <td>Crew</td>
+                <td>Guest of</td>
+                <td></td>
+            </tr>`
+    const crewSyntax = crew
+        .map((member, index) => {
+            return `
+            <tr class="person">
+                <td class="name">${member.name}</td>
+                <td class="guestOf">${member.guestOf}</td>
+                <td><button class="removeNameButton" id="removeName-${date}-${index}">-</button></td>
+            </tr>
+            `;
+            })
+        .join("");
+    return tableSyntax + crewSyntax + `</table>`;
 }
 
 function slotSyntax(slot, event){
-    return `<img src="${getIcon(slot)}" alt="${event}" class="icon">`;
+    return `<p class="slot">${slot}<img src="${getIcon(slot)}" alt="${event}" class="icon"></p>`;
+}
+
+function eventSyntax(event){
+    let eventSyntax = '';
+    if(event !== "" && event !== null && event !== undefined){
+        const eventIcon = `<img src="${getIcon(event)}" alt="${event}" class="icon">`;
+        eventSyntax = `<p class="event">${event}${eventIcon}</p>`
+    }
+    return eventSyntax;
 }
 
 function renderDay(day) {
-
-// Define the icon image source based on day.slot
-
-const slotIcon = slotSyntax(day.slot, day.event);
-
-let eventSyntax = '';
-
-if(day.event !== "" && day.event !== null && day.event !== undefined){
-    const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
-    eventSyntax = `<p class="event">${day.event}${eventIcon}</p>`
-}
-
-return `
-<div class="day">
-    <p class="date">${moment(day.date).format('ddd MMM D')}</p>
-    <p class="slot">${day.slot}${slotIcon}</p>
-    ${eventSyntax}
-    <table id="crew-${day.date}">
-    <tr class="header">
-        <td>Crew</td>
-        <td>Guest of</td>
-        <td></td>
-    </tr>
-    ${day.crew ? renderCrew(day.crew, day.date) : ""}
-    </table>
-    <input type="text" id="nameInput-${day.date}" placeholder="New name">
-    <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
-    <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
-    <button id="addName${day.date}">Add Name</button>
-</div>
-`;
+    return `
+    <div class="day">
+        <p class="date">${moment(day.date).format('ddd MMM D')}</p>
+        ${slotSyntax(day.slot, day.event)}
+        ${eventSyntax(day.event)}
+        ${day.crew ? renderCrewTable(day.crew, day.date) : ""}
+        <input type="text" id="nameInput-${day.date}" placeholder="New name">
+        <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
+        <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
+        <button id="addName${day.date}">Add Name</button>
+    </div>
+    `;
 }
 
 function renderDayShort(day) {
-    // Define the icon image source based on day.slot
-    const slotIconSrc = day.slot === "Day" ? "../assets/icons/sun.png" : (day.slot === "Eve" ? "../assets/icons/sunset.png" : "");
-    // Create an <img> element with the icon source
-    const slotIcon = slotIconSrc ? `<img src="${slotIconSrc}" alt="${day.slot}" class="icon">` : '';
-
-    let eventSyntax = '';
-
-    if(day.event !== "" && day.event !== null && day.event !== undefined){
-        const eventIcon = `<img src="${getIcon(day.event)}" alt="${day.event}" class="icon">`;
-        eventSyntax = `<p class="event">${day.event}${eventIcon}</p>`
-    }
-    
     return `
     <div class="day">
         <p class="date">${moment(day.date).format('ddd MMM D YY')}</p>
-        <p class="slot">${day.slot}${slotIcon}</p>
-        ${eventSyntax}
+        ${slotSyntax(day.slot, day.event)}
+        ${eventSyntax(day.event)}
     </div>
     `;
 }
@@ -94,16 +80,15 @@ export function render(days, showPast, callback) {
     const element = document.querySelector("#expeditions"); //select the expeditions elements
     const currentDate = moment().format('YYYYMMDD'); // Get the current date
     let filteredDays; //create the variable to hold the days that show in the view
-    console.log(days);
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
+        filteredDays.sort((a, b) => b.date - a.date);
         element.innerHTML = filteredDays.map(renderDayShort).join(""); 
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
+        filteredDays.sort((a, b) => a.date - b.date);
         element.innerHTML = filteredDays.map(renderDay).join("");
     }
-    
-
     // Call the callback function after rendering is complete
     if (typeof callback === "function") {
         callback();
