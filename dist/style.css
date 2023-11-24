@@ -78,10 +78,16 @@ input {
     margin-bottom: 10px;
 }
 
+.newNameInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .icon {
     height: 1em; /* Make the icon's height match the container's height */
     margin-left: 5px; /* Adjust the spacing between text and icon as needed */
-  }
+}
 
 /*CREW STYLES*/
 table {

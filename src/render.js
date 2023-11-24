@@ -58,10 +58,12 @@ function renderDay(day) {
         ${slotSyntax(day.slot, day.event)}
         ${eventSyntax(day.event)}
         ${day.crew ? renderCrewTable(day.crew, day.date) : ""}
-        <input type="text" id="nameInput-${day.date}" placeholder="New name">
-        <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
-        <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
-        <button id="addName${day.date}">Add Name</button>
+        <div class="newNameInputs">
+            <input type="text" id="nameInput-${day.date}" placeholder="New name">
+            <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
+            <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
+            <button id="addName${day.date}">Add Name</button>
+        </div>
     </div>
     `;
 }
