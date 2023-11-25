@@ -28,7 +28,7 @@ body {
 
 /*HEADER STYLES*/
 header {
-    padding: 0px 24px 0px 24px;
+    padding: 0px 24px 10px 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,6 +38,10 @@ header {
 h1 {
     font-family: "Playfair Display", Arial, Helvetica, sans-serif;
     color: var(--primary);
+}
+
+nav a {
+    padding: 10px 12px 0px 24px;
 }
 
 /* MAIN STYLES */
