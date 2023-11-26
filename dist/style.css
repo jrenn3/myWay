@@ -44,10 +44,10 @@ nav a {
     padding: 10px 12px 0px 24px;
 }
 
-nav a:link {color: var(--accent); text-decoration: none}
-nav a:visited {color: var(--accent2); text-decoration: none}
-nav a:hover {color: white; text-decoration: none; font-size: 24px;}
-nav a:active {color: #fdc500; text-decoration: none}
+nav a:link {color: var(--primary); text-decoration: none}
+nav a:visited {color: var(--accent); text-decoration: none}
+nav a:hover {color: white; text-decoration: none; font-weight: bold;}
+nav a:active {color: --accent; text-decoration: none}
 
 /* MAIN STYLES */
 main {
