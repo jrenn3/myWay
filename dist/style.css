@@ -80,6 +80,21 @@ main button {
     flex-direction: column;
 }
 
+.listView {
+    background-color: var(--greyLight-1);
+    margin: 10px;
+    width: 250px;
+    padding: 20px 30px 20px 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listDay {
+    display: flex;
+    /* flex-direction: column; */
+}
+
 p {
     margin: 0px;
     padding: 10px 0px 10px 0px;

@@ -71,8 +71,8 @@ function renderDay(day) {
 
 function renderDayShort(day) {
     return `
-    <div class="day">
-        <p class="date">${moment(day.date).format('ddd MMM D YY')}</p>
+    <div class="listDay">
+        <p class="date">${moment(day.date).format('ddd MMM D')}</p>
         ${slotSyntax(day.slot, day.event)}
         ${eventSyntax(day.event)}
     </div>
@@ -88,7 +88,7 @@ export function render(days, showPast, callback) {
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
         filteredDays.sort((a, b) => b.date - a.date);
-        element.innerHTML = filteredDays.map(renderDayShort).join(""); 
+        element.innerHTML = `<div class="listView">` + filteredDays.map(renderDayShort).join("") +`</div>`; 
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));
         filteredDays.sort((a, b) => a.date - b.date);
