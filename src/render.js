@@ -13,8 +13,6 @@ function getIcon (iconKey) {
     return iconLookup[iconKey]
 }
 
-//To-do: ADD BACK THE COUNT OF CREW OUT OF TOTAL
-
 //RENDERING
 function renderCrewTable(crew, date) {
     const tableSyntax = 
@@ -52,12 +50,15 @@ function eventSyntax(event){
 }
 
 function renderDay(day) {
+    const crewCount = day.crew ? day.crew.length : 0;
+
     return `
     <div class="day">
         <p class="date">${moment(day.date).format('ddd MMM D')}</p>
         ${slotSyntax(day.slot, day.event)}
         ${eventSyntax(day.event)}
         ${day.crew ? renderCrewTable(day.crew, day.date) : ""}
+        <p class="crewCount">Crew count: ${crewCount}/12</p>
         <div class="newNameInputs">
             <input type="text" id="nameInput-${day.date}" placeholder="New name">
             <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
@@ -79,19 +80,29 @@ function renderDayShort(day) {
 }
 
 export function render(days, showPast, callback) {
-    const element = document.querySelector("#expeditions"); //select the expeditions elements
-    const currentDate = moment().format('YYYYMMDD'); // Get the current date
-    let filteredDays; //create the variable to hold the days that show in the view
+    const element = document.querySelector("#expeditions");
+    const currentDate = moment(); // Use moment object for easier manipulation
+    let filteredDays;
+    let nextDayCountdown = "";
+
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
         filteredDays.sort((a, b) => b.date - a.date);
         element.innerHTML = filteredDays.map(renderDayShort).join(""); 
     } else {
-        filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));//puts the objects into an arry so .map can work. filters out past
+        filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));
         filteredDays.sort((a, b) => a.date - b.date);
-        element.innerHTML = filteredDays.map(renderDay).join("");
+
+        // Find the next upcoming day
+        const nextDay = filteredDays.length > 0 ? filteredDays[0] : null;
+        if (nextDay) {
+            const nextDayMoment = moment(nextDay.date, 'YYYYMMDD');
+            const duration = moment.duration(nextDayMoment.diff(currentDate));
+            nextDayCountdown = `Next boat day: ${duration.months()} months, ${duration.days()} days`;
+        }
+        element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
     }
-    // Call the callback function after rendering is complete
+
     if (typeof callback === "function") {
         callback();
     } 

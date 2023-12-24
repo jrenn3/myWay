@@ -54,16 +54,16 @@ const dataRef = ref(db, '/');
 * -val: function is used to extract the data from the snapshot object.
 * -resolve: function is used to return the data from the Promise.*/
 export function fetchDataFromDatabase() {
-return new Promise((resolve, reject) => {
-    onValue(dataRef, (snapshot) => {
-    const data = snapshot.val();
-    if (data) {
-        window.days = resolve(data);
-    } else {
-        reject("No data available");
-    }
-    }, (error) => {
-        reject("Error reading data: " + error.message);
-    });
-});
+  return new Promise((resolve, reject) => {
+      onValue(dataRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+          window.days = resolve(data);
+      } else {
+          reject("No data available");
+      }
+      }, (error) => {
+          reject("Error reading data: " + error.message);
+      });
+  });
 }
