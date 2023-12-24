@@ -92,7 +92,12 @@ main button {
 
 .listDay {
     display: flex;
+    border-top: 1px solid var(--greyLight-2);
     /* flex-direction: column; */
+}
+
+.listDay .slot {
+    padding: 10px 10px 10px 10px;
 }
 
 p {
