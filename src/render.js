@@ -51,25 +51,31 @@ function eventSyntax(event){
 
 function renderDay(day) {
     const crewCount = day.crew ? day.crew.length : 0;
-
     return `
     <div class="day">
-        <p class="date">${moment(day.date).format('ddd MMM D')}</p>
-        ${slotSyntax(day.slot, day.event)}
-        ${eventSyntax(day.event)}
-        ${day.crew ? renderCrewTable(day.crew, day.date) : ""}
-        <p class="crewCount">Crew count: ${crewCount}/12</p>
-        <div class="newNameInputs">
-            <input type="text" id="nameInput-${day.date}" placeholder="New name">
-            <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
-            <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
-            <button id="addName${day.date}">Add Name</button>
+        <div class="row">
+            <p class="date">${moment(day.date).format('ddd MMM D')}</p>
+            ${slotSyntax(day.slot, day.event)}
+            ${eventSyntax(day.event)}
+        </div>
+        <div class="row">
+            <p class="crewCount">Crew count: ${crewCount}/12</p>
+            <button class="expandButton" id="expand-${day.date}">Expand</button>
+        </div>
+        <div class="hidden" id="details-${day.date}">
+            ${day.crew ? renderCrewTable(day.crew, day.date) : ""}
+            <div class="newNameInputs">
+                <input type="text" id="nameInput-${day.date}" placeholder="New name">
+                <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
+                <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
+                <button id="addName${day.date}">Add Name</button>
+            </div>
         </div>
     </div>
     `;
 }
 
-function renderDayShort(day) {
+function renderDayList(day) {
     return `
     <div class="listDay">
         <p class="date">${moment(day.date).format('ddd MMM D')}</p>
@@ -88,7 +94,7 @@ export function render(days, showPast, callback) {
     if(showPast) { //if 
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
         filteredDays.sort((a, b) => b.date - a.date);
-        element.innerHTML = `<div class="listView">` + filteredDays.map(renderDayShort).join("") +`</div>`; 
+        element.innerHTML = `<div class="listView">` + filteredDays.map(renderDayList).join("") +`</div>`; 
     } else {
         filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));
         filteredDays.sort((a, b) => a.date - b.date);

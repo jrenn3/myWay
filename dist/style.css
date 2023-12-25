@@ -100,6 +100,11 @@ main button {
     padding: 10px 10px 10px 10px;
 }
 
+.row {
+    display: flex;
+    /* flex-direction: row; */
+}
+
 p {
     margin: 0px;
     padding: 10px 0px 10px 0px;
@@ -160,6 +165,15 @@ td + td + td, th + th + th {
 
 .removeNameButton {
     width: auto;
+}
+
+.expandButton {
+    width: auto;
+    height: auto;
+}
+
+.hidden {
+    display: none;
 }
 
 /* button {

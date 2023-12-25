@@ -1,6 +1,6 @@
 import { fetchDataFromDatabase } from './data';
 import { render } from './render';
-import { addName, removeName } from './events';
+import { addName, removeName, showDetails } from './events';
 
 export function main() {
 fetchDataFromDatabase()
@@ -12,6 +12,8 @@ fetchDataFromDatabase()
           button.addEventListener("click", addName);
         } else if (button.id.startsWith("removeName")) {
           button.addEventListener("click", removeName);
+        } else if (button.id.startsWith("expand")) {
+          button.addEventListener("click", showDetails);
         }
       });
     });
