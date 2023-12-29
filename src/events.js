@@ -62,7 +62,7 @@ export function removeName(event) {
     });
 }
 
-export function showDetails(event){
+export function showDetails(event) {
     const date = event.target.id.slice(7, 16);
     const details = document.getElementById(`details-${date}`);
     details.classList.toggle('hidden');
