@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "firebase": "^10.4.0",
+    "framework7": "^8.3.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4"
   },
