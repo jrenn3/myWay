@@ -68,7 +68,7 @@ function renderDay(day) {
                 <input type="text" id="nameInput-${day.date}" placeholder="New name">
                 <input type="text" id="guestOfInput-${day.date}" placeholder="Guest of...">
                 <input type="text" id="phoneInput-${day.date}" placeholder="Phone number">
-                <button id="addName${day.date}">Add Name</button>
+                <button class="addNamesButton" id="addName${day.date}">Add Name</button>
             </div>
         </div>
     </div>
