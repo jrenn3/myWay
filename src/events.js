@@ -73,6 +73,20 @@ document.querySelector('#toggleDays').addEventListener('click', function() {
     const showPast = this.innerText === "Show Past";
     fetchDataFromDatabase()
     .then((data) => {
-        render(data, showPast, function(){})});
+        render(data, showPast, function() {buttonListeners()})});
     this.innerText = showPast ? "Show Upcoming" : "Show Past";
+    buttonListeners();
 });
+
+export function buttonListeners() {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        if (button.id.startsWith("addName")) {
+        button.addEventListener("click", addName);
+        } else if (button.id.startsWith("removeName")) {
+        button.addEventListener("click", removeName);
+        } else if (button.id.startsWith("expand")) {
+        button.addEventListener("click", showDetails);
+        }
+    });
+}
