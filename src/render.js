@@ -9,7 +9,8 @@ const iconLookup = {
     'Fireworks' : '../assets/icons/fireworks.png',
     'Play Pen' : '../assets/icons/toast.png',
     'Lolla' : '../assets/icons/mic.png',
-    'Air & Water' : '../assets/icons/jet.png'
+    'Air & Water' : '../assets/icons/jet.png',
+    'Joe Birth' : '../assets/icons/birth.png'
 }
 
 function getIcon (iconKey) {
