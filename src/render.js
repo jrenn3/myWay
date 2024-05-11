@@ -7,7 +7,9 @@ const iconLookup = {
     'Eve' : '../assets/icons/sunset.png',
     'Sailing' : '../assets/icons/sailboat.png',
     'Fireworks' : '../assets/icons/fireworks.png',
-    'Play Pen' : '../assets/icons/toast.png'
+    'Play Pen' : '../assets/icons/toast.png',
+    'Lolla' : '../assets/icons/mic.png',
+    'Air & Water' : '../assets/icons/jet.png'
 }
 
 function getIcon (iconKey) {
@@ -105,7 +107,7 @@ export function render(days, showPast, callback) {
         if (nextDay) {
             const nextDayMoment = moment(nextDay.date, 'YYYYMMDD');
             const duration = moment.duration(nextDayMoment.diff(currentDate));
-            nextDayCountdown = `Next boat day: ${duration.months()} months, ${duration.days()} days`;
+            nextDayCountdown = `Next boat day: ${duration.days()} days`;
         }
         element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
     }
