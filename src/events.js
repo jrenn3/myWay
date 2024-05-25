@@ -90,6 +90,8 @@ export function showAllDetails() {
     allButtons.forEach(button => {
         button.innerText = shouldExpand ? "Collapse" : "Expand";
     });
+
+    this.innerText = this.innerText==="Expand All" ? "Collapse All" : "Expand All";
 }
 
 document.querySelector('#toggleDays').addEventListener('click', function() {
