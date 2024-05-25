@@ -86,9 +86,9 @@ export function showAllDetails() {
     });
 
     // Select all buttons and update their text
-    const allButtons = document.querySelectorAll('[id^="button-"]');
+    const allButtons = document.querySelectorAll('[id^="expand-"]');
     allButtons.forEach(button => {
-        button.innerText = shouldExpand ? "Collapse" : "Expand";
+        button.innerText = button.innerText === "Expand" ? "Collapse" : "Expand";
     });
 
     this.innerText = this.innerText==="Expand All" ? "Collapse All" : "Expand All";
