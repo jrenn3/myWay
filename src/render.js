@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { main } from '.';
+import { saveVisibleDays, loadVisibleDays} from './state'
 
 //ICON MAPPING
 const iconLookup = {
@@ -113,9 +114,10 @@ export function render(days, showPast, callback) {
             nextDayCountdown = `Next boat day: ${duration.days()} days`;
         }
         element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
+        loadVisibleDays();
     }
 
     if (typeof callback === "function") {
         callback();
-    } 
+    }
 }

@@ -2,9 +2,11 @@ import { ref, push, set, get } from "firebase/database";
 import { db, fetchDataFromDatabase } from './data';
 import { main } from './index'
 import { render } from './render';
+import { saveVisibleDays, loadVisibleDays} from './state'
 
 //BUTTON SYNTAX
 export function addName(event) {
+
     //get the date key of the button that was clicked
     const date = event.target.id.slice(7, 16);
 
@@ -40,6 +42,7 @@ export function addName(event) {
         .catch((error) => {
         console.error("Error retrieving crew data: " + error.message);
         });
+    saveVisibleDays();
     main();
 }
 
@@ -60,6 +63,7 @@ export function removeName(event) {
     .catch((error) => {
     console.error("Error retrieving crew data: " + error.message);
     });
+    saveVisibleDays();
 }
 
 export function showDetails(event) {
@@ -67,6 +71,7 @@ export function showDetails(event) {
     const details = document.getElementById(`details-${date}`);
     details.classList.toggle('hidden');
     this.innerText = this.innerText==="Expand" ? "Collapse" : "Expand";
+    saveVisibleDays();
 }
 
 export function showAllDetails() {
@@ -92,6 +97,7 @@ export function showAllDetails() {
     });
 
     this.innerText = this.innerText==="Expand All" ? "Collapse All" : "Expand All";
+    saveVisibleDays();
 }
 
 document.querySelector('#toggleDays').addEventListener('click', function() {
@@ -117,3 +123,4 @@ export function buttonListeners() {
         }
     });
 }
+
