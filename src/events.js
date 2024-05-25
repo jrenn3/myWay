@@ -69,6 +69,29 @@ export function showDetails(event) {
     this.innerText = this.innerText==="Expand" ? "Collapse" : "Expand";
 }
 
+export function showAllDetails() {
+    // Select all detail elements
+    const allDetails = document.querySelectorAll('[id^="details-"]');
+    
+    // Check if we need to expand or collapse based on the first element's state
+    const shouldExpand = Array.from(allDetails).some(detail => detail.classList.contains('hidden'));
+
+    // Toggle the 'hidden' class on all details
+    allDetails.forEach(details => {
+        if (shouldExpand) {
+            details.classList.remove('hidden');
+        } else {
+            details.classList.add('hidden');
+        }
+    });
+
+    // Select all buttons and update their text
+    const allButtons = document.querySelectorAll('[id^="button-"]');
+    allButtons.forEach(button => {
+        button.innerText = shouldExpand ? "Collapse" : "Expand";
+    });
+}
+
 document.querySelector('#toggleDays').addEventListener('click', function() {
     const showPast = this.innerText === "Show Past";
     fetchDataFromDatabase()
@@ -82,11 +105,13 @@ export function buttonListeners() {
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
         if (button.id.startsWith("addName")) {
-        button.addEventListener("click", addName);
+            button.addEventListener("click", addName);
         } else if (button.id.startsWith("removeName")) {
-        button.addEventListener("click", removeName);
+            button.addEventListener("click", removeName);
         } else if (button.id.startsWith("expand")) {
-        button.addEventListener("click", showDetails);
+            button.addEventListener("click", showDetails);
+        } else if (button.id.startsWith("toggleAllDays")) {
+            button.addEventListenter("click", showAllDetails);
         }
     });
 }
