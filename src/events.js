@@ -111,7 +111,7 @@ export function buttonListeners() {
         } else if (button.id.startsWith("expand")) {
             button.addEventListener("click", showDetails);
         } else if (button.id.startsWith("toggleAllDays")) {
-            button.addEventListenter("click", showAllDetails);
+            button.addEventListener("click", showAllDetails);
         }
     });
 }
