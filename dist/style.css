@@ -58,6 +58,10 @@ main {
     align-items: center;
 }
 
+#toggleAllDays {
+    margin-top: 10px;
+}
+
 /*EXPEDITION STYLES*/
 #expeditions { 
     display: flex;
