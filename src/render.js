@@ -10,6 +10,7 @@ const iconLookup = {
     'Fireworks' : '../assets/icons/fireworks.png',
     'Play Pen' : '../assets/icons/toast.png',
     'Lolla' : '../assets/icons/mic.png',
+    'Blvckscene' : '../assets/icons/mic.png',
     'Bynd Wndrld' : '../assets/icons/mic.png',
     'Air & Water' : '../assets/icons/jet.png',
     'Joe Birth' : '../assets/icons/birth.png',
@@ -111,7 +112,7 @@ export function render(days, showPast, callback) {
         if (nextDay) {
             const nextDayMoment = moment(nextDay.date, 'YYYYMMDD');
             const duration = moment.duration(nextDayMoment.diff(currentDate));
-            nextDayCountdown = `Next boat day: ${duration.days()} days`;
+            nextDayCountdown = `Next boat day: ${duration.days()+1} days`;
         }
         element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
         loadVisibleDays();
