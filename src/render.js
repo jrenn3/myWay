@@ -99,20 +99,19 @@ export function render(days, showPast, callback) {
     let filteredDays;
     let nextDayCountdown = "";
 
-    if(showPast) { //if 
-        filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate));
+    if(showPast) {
+        filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate, 'day'));
         filteredDays.sort((a, b) => b.date - a.date);
         element.innerHTML = `<div class="listView">` + filteredDays.map(renderDayList).join("") +`</div>`; 
     } else {
-        filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate));
+        filteredDays = Object.values(days).filter((day) => moment(day.date, 'YYYYMMDD').isSameOrAfter(currentDate, 'day'));
         filteredDays.sort((a, b) => a.date - b.date);
-
         // Find the next upcoming day
         const nextDay = filteredDays.length > 0 ? filteredDays[0] : null;
         if (nextDay) {
             const nextDayMoment = moment(nextDay.date, 'YYYYMMDD');
-            const duration = moment.duration(nextDayMoment.diff(currentDate));
-            nextDayCountdown = `Next boat day: ${duration.days()+1} days`;
+            const duration = moment.duration(nextDayMoment.diff(currentDate, 'day'));
+            nextDayCountdown = `Next boat day: ${duration.days()} days`;
         }
         element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
         loadVisibleDays();
