@@ -110,8 +110,8 @@ export function render(days, showPast, callback) {
         const nextDay = filteredDays.length > 0 ? filteredDays[0] : null;
         if (nextDay) {
             const nextDayMoment = moment(nextDay.date, 'YYYYMMDD');
-            const duration = moment.duration(nextDayMoment.diff(currentDate, 'day'));
-            nextDayCountdown = `Next boat day: ${duration.days()} days`;
+            const duration = moment.duration(nextDayMoment.diff(currentDate));
+            nextDayCountdown = `Next boat day: ${duration.days()+1} days`;
         }
         element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
         loadVisibleDays();
