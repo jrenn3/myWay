@@ -4,17 +4,18 @@ import { saveVisibleDays, loadVisibleDays} from './state'
 
 //ICON MAPPING
 const iconLookup = {
-    'Day' : '../assets/icons/sun.png',
-    'Eve' : '../assets/icons/sunset.png',
-    'Sailing' : '../assets/icons/sailboat.png',
-    'Fireworks' : '../assets/icons/fireworks.png',
-    'Play Pen' : '../assets/icons/toast.png',
-    'Lolla' : '../assets/icons/mic.png',
-    'Blvckscene' : '../assets/icons/mic.png',
-    'Bynd Wndrld' : '../assets/icons/mic.png',
-    'Air & Water' : '../assets/icons/jet.png',
-    'Joe Birth' : '../assets/icons/birth.png',
-    'Overnight' : '../assets/icons/overnight.png'
+    'Day' : '../assets/icons/sun.png'
+    ,'Eve' : '../assets/icons/sunset.png'
+    ,'Sailing' : '../assets/icons/sailboat.png'
+    ,'Fireworks' : '../assets/icons/fireworks.png'
+    ,'Play Pen' : '../assets/icons/toast.png'
+    ,'Lolla' : '../assets/icons/mic.png'
+    ,'Blvckscene' : '../assets/icons/mic.png'
+    ,'Bynd Wndrld' : '../assets/icons/mic.png'
+    ,'Air & Water' : '../assets/icons/jet.png'
+    ,'Joe Birth' : '../assets/icons/birth.png'
+    ,'Overnight' : '../assets/icons/overnight.png'
+    ,"Spritz'd" :  '../assets/icons/spritz.png'
 }
 
 function getIcon (iconKey) {
