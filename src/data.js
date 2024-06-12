@@ -39,7 +39,7 @@ const app = initializeApp(firebaseConfig);
 /**Gets a handle to the database so that you can read or write data to it.
   -getDatabase() used to retrieve a reference to the Firebase Realtime Database associated with my Firebase
     app.*/
-export const db = getDatabase();
+export const db = getDatabase(app);
 //Creates a reference to data at the root of the database
 const dataRef = ref(db, '/');
 
