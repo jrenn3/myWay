@@ -1,5 +1,5 @@
 import { ref, push, set, get } from "firebase/database";
-import { db, fetchDataFromDatabase } from './data';
+import { db, fetchDays } from './data';
 import { main } from './index'
 import { render } from './render';
 import { saveVisibleDays, loadVisibleDays} from './state'
@@ -102,7 +102,7 @@ export function showAllDetails() {
 
 document.querySelector('#toggleDays').addEventListener('click', function() {
     const showPast = this.innerText === "Show Past";
-    fetchDataFromDatabase()
+    fetchDays()
     .then((data) => {
         render(data, showPast, function() {buttonListeners()})});
     this.innerText = showPast ? "Show Upcoming" : "Show Past";

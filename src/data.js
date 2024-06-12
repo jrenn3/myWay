@@ -17,7 +17,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 
 //Configuration to the My Way database
-const firebaseConfig = {
+const firebaseDays = {
     apiKey: "AIzaSyCVEridJKO2vwHMAwD7SieDc1BA-W9Tys4",
     authDomain: "my-way-yacht.firebaseapp.com",
     databaseURL: "https://my-way-yacht-default-rtdb.firebaseio.com",
@@ -28,6 +28,17 @@ const firebaseConfig = {
     measurementId: "G-B97V4WDN4Q"
 };
 
+//Configuration to the RSVP database
+const firebaseRSVPs = {
+  apiKey: "AIzaSyAUr7UMMECM0UEFKma786IGJXmSTFk1PGo",
+  authDomain: "my-way-rsvps.firebaseapp.com",
+  projectId: "my-way-rsvps",
+  storageBucket: "my-way-rsvps.appspot.com",
+  messagingSenderId: "90987579405",
+  appId: "1:90987579405:web:c99de8d118438854ef6d44",
+  measurementId: "G-N8E7LF6RR7"
+};
+
 /**Initializes a Firebase app instance using the configuration provided in the firebaseConfig
 object.
   -initializeApp function: used to set up a connection between your web application and Firebase services
@@ -35,13 +46,14 @@ object.
   -The resulting app object is used as a reference to your Firebase app throughout your code. You'll use 
     it to interact with various Firebase services, such as the Realtime Database, Authentication, and 
     Cloud Messaging.*/
-const app = initializeApp(firebaseConfig);
+const appDays = initializeApp(firebaseDays);
+const appRSVPs = initializeApp(firebaseRSVPs);
 /**Gets a handle to the database so that you can read or write data to it.
   -getDatabase() used to retrieve a reference to the Firebase Realtime Database associated with my Firebase
     app.*/
 export const db = getDatabase();
 //Creates a reference to data at the root of the database
-const dataRef = ref(db, '/');
+const dataRefDays = ref(db, '/');
 
 //DATA DOWNLOAD
 /**Function to fetch data from the database and assign it to the global variable days.
@@ -53,9 +65,24 @@ const dataRef = ref(db, '/');
 *   perform any operations on it.
 * -val: function is used to extract the data from the snapshot object.
 * -resolve: function is used to return the data from the Promise.*/
-export function fetchDataFromDatabase() {
+export function fetchDays() {
   return new Promise((resolve, reject) => {
-      onValue(dataRef, (snapshot) => {
+      onValue(dataRefDays, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+          window.days = resolve(data);
+      } else {
+          reject("No data available");
+      }
+      }, (error) => {
+          reject("Error reading data: " + error.message);
+      });
+  });
+}
+
+export function fetchRSVPs() {
+  return new Promise((resolve, reject) => {
+      onValue(dataRefDays, (snapshot) => {
       const data = snapshot.val();
       if (data) {
           window.days = resolve(data);
