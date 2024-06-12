@@ -1,5 +1,5 @@
 import { ref, push, set, get } from "firebase/database";
-import { db, fetchDays } from './data';
+import { dbDays, fetchDays } from './data';
 import { main } from './index'
 import { render } from './render';
 import { saveVisibleDays, loadVisibleDays} from './state'

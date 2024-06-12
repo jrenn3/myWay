@@ -51,9 +51,11 @@ const appRSVPs = initializeApp(firebaseRSVPs);
 /**Gets a handle to the database so that you can read or write data to it.
   -getDatabase() used to retrieve a reference to the Firebase Realtime Database associated with my Firebase
     app.*/
-export const db = getDatabase();
+export const dbDays = getDatabase(appDays);
+export const dbRSVPs = getDatabase(appRSVPs);
 //Creates a reference to data at the root of the database
-const dataRefDays = ref(db, '/');
+const dataRefDays = ref(dbDays, '/');
+const dataRefRSVPs = ref(dbRSVPs, '/');
 
 //DATA DOWNLOAD
 /**Function to fetch data from the database and assign it to the global variable days.
@@ -82,7 +84,7 @@ export function fetchDays() {
 
 export function fetchRSVPs() {
   return new Promise((resolve, reject) => {
-      onValue(dataRefDays, (snapshot) => {
+      onValue(dataRefRSVPs, (snapshot) => {
       const data = snapshot.val();
       if (data) {
           window.days = resolve(data);
