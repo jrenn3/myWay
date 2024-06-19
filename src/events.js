@@ -1,9 +1,44 @@
 import { initializeApp } from 'firebase/app';
 import { ref, push, set, get } from "firebase/database";
-import { dbDays, dbRSVPs, fetchDays, fetchRSVPs } from './data';
+import { dbDays, dbRSVPs, fetchDays, fetchRSVPs, logtime } from './data';
 import { main } from './index'
 import { render } from './render';
 import { saveVisibleDays, loadVisibleDays} from './state'
+
+function formatTimestamp(timestamp){
+    const date = new Date(timestamp);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+  
+    return `${year}${month}${day}${hours}${minutes}${seconds}`;
+}
+
+function changeLog(type, date, guestOf, name, phone){
+    const RSVPRef = ref(dbRSVPs)
+
+    const newRVSP =   {
+        timestamp: formatTimestamp(Date.now()),
+        change_type: type,
+        day: date,
+        person: {
+            name: name,
+            guestOf: guestOf,
+            phone: phone
+        }
+      }
+    
+    get(RSVPRef)
+        .then((snapshot) => {
+        const RSVPlog = snapshot.val() || []; // If the array doesn't exist yet, initialize it as an empty array
+        RSVPlog.push(newRVSP)
+        set(RSVPRef, RSVPlog);
+    });
+}
 
 //BUTTON SYNTAX
 export function addName(event) {
@@ -49,25 +84,7 @@ export function addName(event) {
     main();
 
     //ADD RSVP TO CHANGE LONG
-    const RSVPRef = ref(dbRSVPs)
-
-    const newRVSP =   {
-        change_type: "added",
-        day: date,
-        person: {
-          guestOf: guestOfInput.value,
-          name: nameInput.value,
-          phone: phoneInput.value
-        },
-        // timestamp: firebase.database.ServerValue.TIMESTAMP
-      }
-    
-    get(RSVPRef)
-        .then((snapshot) => {
-        const RSVPlog = snapshot.val() || []; // If the array doesn't exist yet, initialize it as an empty array
-        RSVPlog.push(newRVSP)
-        set(RSVPRef, RSVPlog);
-    });
+    changeLog("added", date, guestOfInput.value, nameInput.value, phoneInput.value);
 }
 
 export function removeName(event) {
@@ -75,9 +92,16 @@ export function removeName(event) {
     const index = event.target.id.slice(20, 22);
 
     const crewRef = ref(dbDays, `/${date}/crew`);
+
     get(crewRef)
     .then((snapshot) => {
     const currentCrew = snapshot.val() || [];
+
+    //ADD RSVP TO CHANGE LONG
+    const removedPerson = currentCrew[index];
+    console.log(removedPerson);
+    changeLog("removed", date, removedPerson.guestOf, removedPerson.name, removedPerson.phone);
+
     if (index >= 0 && index < currentCrew.length) {
         currentCrew.splice(index, 1); // Remove the member from the array
         set(crewRef, currentCrew); // Update the crew array in the database
@@ -87,7 +111,9 @@ export function removeName(event) {
     .catch((error) => {
     console.error("Error retrieving crew data: " + error.message);
     });
+    
     saveVisibleDays();
+
 }
 
 export function showDetails(event) {
