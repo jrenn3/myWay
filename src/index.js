@@ -1,9 +1,9 @@
-import { fetchDataFromDatabase } from './data';
+import { fetchDays } from './data';
 import { render } from './render';
 import { addName, removeName, showDetails, buttonListeners } from './events';
 
 export function main() {
-fetchDataFromDatabase()
+fetchDays()
   .then((data) => {
     render(data, false, function() {buttonListeners()});
   })
