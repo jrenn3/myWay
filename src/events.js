@@ -99,7 +99,7 @@ export function removeName(event) {
 
     //ADD RSVP TO CHANGE LONG
     const removedPerson = currentCrew[index];
-    console.log(removedPerson);
+    
     changeLog("removed", date, removedPerson.guestOf, removedPerson.name, removedPerson.phone);
 
     if (index >= 0 && index < currentCrew.length) {
