@@ -8,7 +8,7 @@ const iconLookup = {
     ,'Eve' : '../assets/icons/sunset.png'
     ,'Sailing' : '../assets/icons/sailboat.png'
     ,'Fireworks' : '../assets/icons/fireworks.png'
-    ,'Party' : '../assets/icons/fireworks.png'
+    ,'Dock Party' : '../assets/icons/fireworks.png'
     ,'Play Pen' : '../assets/icons/toast.png'
     ,'Lolla' : '../assets/icons/mic.png'
     ,'Blvckscene' : '../assets/icons/mic.png'
