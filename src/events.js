@@ -14,11 +14,12 @@ function formatTimestamp(timestamp){
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
+    const milliseconds = String(date.getMilliseconds()).padStart(2, '0');
   
-    return `${year}${month}${day}${hours}${minutes}${seconds}`;
+    return `${year}${month}${day}${hours}${minutes}${seconds}${milliseconds}`;
 }
 
-function changeLog(type, date, guestOf, name, phone){
+function changeLog(type, date, guestOf, name, phone){s
     const RSVPRef = ref(dbRSVPs)
 
     const newRVSP =   {

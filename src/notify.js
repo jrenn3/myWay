@@ -51,7 +51,11 @@ function formatEmail(changes) {
     let emailContent = '<h1>My Way changes in the Last 24 Hours</h1><ul>';
     for (const key in changes) {
       const change = changes[key];
-      emailContent += `<li>At ${change.timestamp}, ${change.person.name} was ${change.change_type} from/to ${change.day}</li>`;
+      let guestSyntax = '';
+      if(change.person.guestOf !== "" && change.person.guestOf !== null && change.person.guestOf !== undefined){
+          guestSyntax = ` (guest of ${change.person.guestOf})`
+      }
+      emailContent += `<li>At ${change.timestamp}, ${change.person.name}${guestSyntax} was ${change.change_type} from/to ${change.day}</li>`;
     }
     emailContent += '</ul>';
     return emailContent;
