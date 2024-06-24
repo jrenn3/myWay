@@ -57,7 +57,7 @@ function formatEmail(changes) {
       if(change.person.guestOf !== "" && change.person.guestOf !== null && change.person.guestOf !== undefined){
           guestSyntax = ` (guest of ${change.person.guestOf})`
       }
-      emailContent += `<li>At ${change.timestamp}, ${change.person.name}${guestSyntax} was ${change.change_type} from/to ${change.day}</li>`;
+      emailContent += `<li>${change.change_type} ${change.person.name}${guestSyntax} from/to ${change.day} (occured  ${change.timestamp})</li>`;
     }
     emailContent += '</ul>';
     return emailContent;
