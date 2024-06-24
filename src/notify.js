@@ -1,6 +1,8 @@
 const { initializeApp } = require("firebase/app");
 const { getDatabase, ref, onValue, get } = require("firebase/database");
 const { last } = require("lodash");
+const nodemailer = require('nodemailer');
+const moment = require('moment')
 
 const firebaseRSVPs = {
     apiKey: "AIzaSyAUr7UMMECM0UEFKma786IGJXmSTFk1PGo",
@@ -48,7 +50,7 @@ async function get24hrRSVPs(db){
 }
 
 function formatEmail(changes) {
-    let emailContent = '<h1>My Way changes in the Last 24 Hours</h1><ul>';
+    let emailContent = '<p>My Way changes in the last 24hrs</p><ul>';
     for (const key in changes) {
       const change = changes[key];
       let guestSyntax = '';
@@ -61,10 +63,30 @@ function formatEmail(changes) {
     return emailContent;
   }
 
+  async function sendEmail(content) {
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'jrenn3@gmail.com',
+        pass: 'hewx qyni ahdm ngyq'
+      }
+    });
+  
+    let mailOptions = {
+      from: 'jrenn3@gmail.com',
+      to: 'rennerjm@icloud.com',
+      subject: 'My Way RSVPs',
+      html: content
+    };
+  
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
+}
+
 async function main() {
     const last24hrChanges = await get24hrRSVPs(dataRefRSVPs);
-    console.log(last24hrChanges);
-    console.log("Formatted Email:", formatEmail(last24hrChanges));
+    const formattedChanges = formatEmail(last24hrChanges);
+    sendEmail(formattedChanges);
 }
 
 main();
