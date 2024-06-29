@@ -3,6 +3,7 @@ const { getDatabase, ref, onValue, get } = require("firebase/database");
 const { last } = require("lodash");
 const nodemailer = require('nodemailer');
 const moment = require('moment')
+const cron = require('node-cron');
 
 const firebaseRSVPs = {
     apiKey: "AIzaSyAUr7UMMECM0UEFKma786IGJXmSTFk1PGo",
@@ -89,4 +90,23 @@ async function main() {
     sendEmail(formattedChanges);
 }
 
-main();
+const task = cron.schedule('00 07 * * *', async () => {
+  try {
+    console.log('Cron ran');
+    await main();
+  } catch (error) {
+    console.error('Error in scheduled task:', error);
+  }
+});
+
+console.log('Scheduler is running...');
+
+function stopCronJob() {
+  task.stop();
+  console.log('Scheduler has been stopped.');
+} 
+
+// Check command-line arguments
+if (process.argv.includes('--stop')) {
+  stopCronJob();
+}
