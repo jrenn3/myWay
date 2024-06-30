@@ -14,11 +14,12 @@ function formatTimestamp(timestamp){
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
+    const milliseconds = String(date.getMilliseconds()).padStart(2, '0');
   
-    return `${year}${month}${day}${hours}${minutes}${seconds}`;
+    return `${year}${month}${day}${hours}${minutes}${seconds}${milliseconds}`;
 }
 
-function changeLog(type, date, guestOf, name, phone){
+function changeLog(type, date, guestOf, name, phone){s
     const RSVPRef = ref(dbRSVPs)
 
     const newRVSP =   {
@@ -92,21 +93,22 @@ export function removeName(event) {
     const index = event.target.id.slice(20, 22);
 
     const crewRef = ref(dbDays, `/${date}/crew`);
-
+    
     get(crewRef)
     .then((snapshot) => {
     const currentCrew = snapshot.val() || [];
 
     //ADD RSVP TO CHANGE LONG
     const removedPerson = currentCrew[index];
-    console.log(removedPerson);
-    changeLog("removed", date, removedPerson.guestOf, removedPerson.name, removedPerson.phone);
 
     if (index >= 0 && index < currentCrew.length) {
         currentCrew.splice(index, 1); // Remove the member from the array
         set(crewRef, currentCrew); // Update the crew array in the database
         main(); // Re-render the page
     }
+
+    changeLog("removed", date, removedPerson.guestOf, removedPerson.name, removedPerson.phone);
+    
     })
     .catch((error) => {
     console.error("Error retrieving crew data: " + error.message);

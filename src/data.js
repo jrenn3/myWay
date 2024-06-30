@@ -22,7 +22,7 @@ const firebaseDays = {
     authDomain: "my-way-yacht.firebaseapp.com",
     databaseURL: "https://my-way-yacht-default-rtdb.firebaseio.com",
     projectId: "my-way-yacht",
-    storageBucket: "my-way-yacht.appspot.com",
+    storageBuckgitet: "my-way-yacht.appspot.com",
     messagingSenderId: "682998640889",
     appId: "1:682998640889:web:dc6d9610316b6926a2f228",
     measurementId: "G-B97V4WDN4Q"
