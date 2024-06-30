@@ -51,7 +51,7 @@ async function get24hrRSVPs(db){
 }
 
 function formatEmail(changes) {
-    let emailContent = '<p>My Way changes in the last 24hrs</p><ul>';
+    let emailContent = '<p>My Way crew changes in the last 24hrs</p><ul>';
     for (const key in changes) {
       const change = changes[key];
       let guestSyntax = '';
@@ -90,7 +90,7 @@ async function main() {
     sendEmail(formattedChanges);
 }
 
-const task = cron.schedule('00 07 * * *', async () => {
+const task = cron.schedule('00 7,16 * * *', async () => {
   try {
     console.log('Cron ran');
     await main();
