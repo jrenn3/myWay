@@ -7,18 +7,12 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+const {initializeApp} = require("firebase/app");
+const {getDatabase, ref, get} = require("firebase/database");
+const nodemailer = require("nodemailer");
 
-const { initializeApp } = require("firebase/app");
-const { getDatabase, ref, onValue, get } = require("firebase/database");
-const { last } = require("lodash");
-const nodemailer = require('nodemailer');
-const moment = require('moment')
-const cron = require('node-cron');
-
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 
 admin.initializeApp();
 
