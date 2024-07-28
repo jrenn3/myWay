@@ -90,23 +90,25 @@ async function main() {
     sendEmail(formattedChanges);
 }
 
-const task = cron.schedule('00 7,16 * * *', async () => {
-  try {
-    console.log('Cron ran');
-    await main();
-  } catch (error) {
-    console.error('Error in scheduled task:', error);
-  }
-});
+main();
 
-console.log('Scheduler is running...');
+// const task = cron.schedule('00 7,16 * * *', async () => {
+//   try {
+//     console.log('Cron ran');
+//     await main();
+//   } catch (error) {
+//     console.error('Error in scheduled task:', error);
+//   }
+// });
 
-function stopCronJob() {
-  task.stop();
-  console.log('Scheduler has been stopped.');
-} 
+// console.log('Scheduler is running...');
+
+// function stopCronJob() {
+//   task.stop();
+//   console.log('Scheduler has been stopped.');
+// } 
 
 // Check command-line arguments
-if (process.argv.includes('--stop')) {
-  stopCronJob();
-}
+// if (process.argv.includes('--stop')) {
+//   stopCronJob();
+// }
