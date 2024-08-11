@@ -19,7 +19,7 @@ function formatTimestamp(timestamp){
     return `${year}${month}${day}${hours}${minutes}${seconds}${milliseconds}`;
 }
 
-function changeLog(type, date, guestOf, name, phone){s
+function changeLog(type, date, guestOf, name, phone){
     const RSVPRef = ref(dbRSVPs)
 
     const newRVSP =   {
