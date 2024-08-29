@@ -141,14 +141,33 @@ export function showAllDetails() {
             details.classList.add('hidden');
         }
     });
+    
+    const allButtons = document.querySelectorAll('[id^="expand-"]');
+    if(this.innerText==="Expand All"){
+        this.innerText ="Collapse All";
+        allButtons.forEach(button => {
+            button.innerText = "Collapse";
+        });
+    } else { 
+        this.innerText ="Expand All";
+        allButtons.forEach(button => {
+            button.innerText = "Expand";
+        });
+    };
+
+    // this.innerText = this.innerText==="Expand All" ? "Collapse All" : "Expand All";
 
     // Select all buttons and update their text
-    const allButtons = document.querySelectorAll('[id^="expand-"]');
-    allButtons.forEach(button => {
-        button.innerText = button.innerText === "Expand" ? "Collapse" : "Expand";
-    });
+    
+    // allButtons.forEach(button => {
+    //     button.innerText = button.innerText === "Expand" ? "Collapse" : "Expand";
+    // });
 
-    this.innerText = this.innerText==="Expand All" ? "Collapse All" : "Expand All";
+    
+
+    // this.innerText = this.innerText==="Expand All" ? "Collapse All" : "Expand All";
+
+
     saveVisibleDays();
 }
 
