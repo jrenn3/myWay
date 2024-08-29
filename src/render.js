@@ -100,6 +100,7 @@ export function render(days, showPast, callback) {
     const currentDate = moment(); // Use moment object for easier manipulation
     let filteredDays;
     let nextDayCountdown = "";
+    let numberDaysCountdown = "";
 
     if(showPast) {
         filteredDays = Object.values(days).filter(day => moment(day.date, 'YYYYMMDD').isBefore(currentDate, 'day'));
@@ -114,8 +115,9 @@ export function render(days, showPast, callback) {
             const nextDayMoment = moment(nextDay.date, 'YYYYMMDD');
             const duration = moment.duration(nextDayMoment.diff(currentDate));
             nextDayCountdown = `Next boat day: ${duration.days()} days`;
+            numberDaysCountdown = `Boat days left: ${filteredDays.length} days`;
         }
-        element.innerHTML = nextDayCountdown + filteredDays.map(renderDay).join("");
+        element.innerHTML = `<p>${nextDayCountdown}</p> <p>${numberDaysCountdown}</p> ${filteredDays.map(renderDay).join("")}`;
         loadVisibleDays();
     }
 
