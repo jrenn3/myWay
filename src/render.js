@@ -11,7 +11,7 @@ const iconLookup = {
     ,'Fireworks' : '../assets/icons/fireworks.png'
     ,'Dock Party' : '../assets/icons/fireworks.png'
     ,'Play Pen' : '../assets/icons/toast.png'
-    ,'Chicago Scene' : '../assets/icons/toast.png'
+    ,'Chi Scene' : '../assets/icons/toast.png'
     ,'Lolla' : '../assets/icons/mic.png'
     ,'Black Scene' : '../assets/icons/toast.png'
     ,'Bynd Wndrld' : '../assets/icons/mic.png'
