@@ -6,6 +6,7 @@ import { saveVisibleDays, loadVisibleDays} from './state'
 const iconLookup = {
     'Day' : '../assets/icons/sun.png'
     ,'Eve' : '../assets/icons/sunset.png'
+    ,'Both' : '../assets/icons/24hr.png'
     ,'Sailing' : '../assets/icons/sailboat.png'
     ,'Regatta' : '../assets/icons/sailboat.png'
     ,'Fireworks' : '../assets/icons/fireworks.png'
